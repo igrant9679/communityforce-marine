@@ -806,17 +806,29 @@ function InquiryForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.occasion) {
       toast.error("Please fill in the required fields.");
       return;
     }
-    setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setSubmitting(false);
+    const subject = encodeURIComponent(
+      `Social Charter Inquiry — ${form.occasion}${form.eventDate ? ` on ${form.eventDate}` : ""}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.name}\n` +
+      `Email: ${form.email}\n` +
+      `Phone: ${form.phone || "Not provided"}\n` +
+      `Occasion: ${form.occasion}\n` +
+      `Preferred Date: ${form.eventDate || "Flexible"}\n` +
+      `Number of Guests: ${form.guestCount || "Not specified"}\n` +
+      `Package Interest: ${form.package || "Not specified"}\n` +
+      `How They Heard About Us: ${form.hearAbout || "Not specified"}\n\n` +
+      `Additional Message:\n${form.message || "None"}`
+    );
+    window.location.href = `mailto:idris.grant@communityforce.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
-    toast.success("Your booking request has been received! We'll be in touch within 24 hours.");
+    toast.success("Opening your email client to send the inquiry!");
   };
 
   return (
