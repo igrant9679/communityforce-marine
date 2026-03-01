@@ -314,7 +314,7 @@ function HeroSection() {
               { value: "41'9\"", label: "Motor Yacht" },
               { value: "740 hp", label: "Twin MerCruiser Gas" },
               { value: "8 Guests", label: "Max Capacity" },
-              { value: "~1,100 hrs", label: "Engine Hours" },
+              { value: "~300 hrs", label: "Engine Hours" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div
@@ -410,7 +410,7 @@ function VesselSection() {
     { label: "Beam", value: "14'3\"" },
     { label: "Engines", value: "Twin MerCruiser 8.1 S Horizon Gas Inboards, 370 hp each" },
     { label: "Total Power", value: "740 hp" },
-    { label: "Engine Hours", value: "~1,100 hours (1,104 / 1,101)" },
+    { label: "Engine Hours", value: "~300 hours" },
     { label: "Top Speed", value: "28 knots" },
     { label: "Cruise Speed", value: "23 knots" },
     { label: "Staterooms", value: "2 private staterooms, sleeps 4" },
@@ -448,7 +448,7 @@ function VesselSection() {
           >
             A premium 41'9" flybridge motor yacht powered by twin MerCruiser 8.1 S Horizon
             gas inboards (370 hp each), two private staterooms, a full galley, and a spacious cockpit
-            with wet bar. At approximately 1,100 engine hours, the vessel is well-maintained and
+            with wet bar. At approximately 300 engine hours, the vessel is exceptionally low-hours and
             ready for an exceptional charter experience.
           </p>
         </div>
