@@ -50,6 +50,13 @@ const IMAGES = {
   marina6: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0097_46e54073.JPG",
   marina7: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0098_0d418f81.JPG",
   marina8: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0787_03fa7333.JPG",
+  // New high-res marina facility photos
+  marinaDockSummer: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_dock_summer_41bf94a0.jpg",
+  marinaAerialBoats: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial_boats_ba504df4.jpg",
+  marinaElectricPalm: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_electric_palm_3d555a4b.jpg",
+  marinaDockView: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_dock_view_cd921dd8.jpg",
+  marinaDeckPatio: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_deck_patio_fcd090ce.jpg",
+  marinaAerialFull: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial_full_57123f5f.jpg",
   // New cockpit & interior photos
   cockpit1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage1_47ab1ea0.jpg",
   cockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage4_9458350e.jpg",
@@ -996,89 +1003,82 @@ function BusinessVenueSection() {
 
 // ─── Marina Section ───────────────────────────────────────────────────────────
 function MarinaSection() {
+  const marinaPhotos = [
+    { src: IMAGES.marinaDockSummer, alt: "Prince William Marina dock — summer view" },
+    { src: IMAGES.marinaAerialBoats, alt: "Prince William Marina aerial — boats at slips" },
+    { src: IMAGES.marinaElectricPalm, alt: "The Electric Palm Restaurant at the Marina" },
+    { src: IMAGES.marinaDockView, alt: "Marina dock view with resort facilities" },
+    { src: IMAGES.marinaDeckPatio, alt: "Marina deck patio overlooking the river" },
+    { src: IMAGES.marinaAerialFull, alt: "Full aerial view of Prince William Marina" },
+  ];
+
   return (
     <section id="marina" className="bg-white py-24">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Photos — expanded marina grid */}
-          <div className="reveal order-2 lg:order-1">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="photo-card aspect-[3/4] col-span-1 row-span-2">
-                <img src={IMAGES.pwmAerialSummer} alt="Prince William Marina aerial view" className="w-full h-full object-cover" />
-              </div>
-              <div className="photo-card aspect-square">
-                <img src={IMAGES.pwmDeck} alt="Marina deck and docks" className="w-full h-full object-cover" />
-              </div>
-              <div className="photo-card aspect-square">
-                <img src={IMAGES.marina2} alt="Marina resort waterfront" className="w-full h-full object-cover" />
-              </div>
-            </div>
-            {/* Second row */}
-            <div className="grid grid-cols-3 gap-3 mt-3">
-              <div className="photo-card aspect-square">
-                <img src={IMAGES.pwmDock} alt="Marina dock walkway" className="w-full h-full object-cover" />
-              </div>
-              <div className="photo-card aspect-square">
-                <img src={IMAGES.marina4} alt="Occoquan River" className="w-full h-full object-cover" />
-              </div>
-              <div className="photo-card aspect-square">
-                <img src={IMAGES.marina8} alt="Marina resort facilities" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="reveal order-1 lg:order-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-10 bg-brass" />
-              <span
-                className="text-brass font-body font-medium uppercase tracking-widest"
-                style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}
-              >
-                The Marina
-              </span>
-            </div>
-            <h2
-              className="font-display font-bold text-navy mb-6"
-              style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+        {/* Header */}
+        <div className="text-center mb-14 reveal">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-10 bg-brass" />
+            <span
+              className="text-brass font-body font-medium uppercase tracking-widest"
+              style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}
             >
-              Prince William Marina
-              <br />
-              <span className="text-brass">Resort & Marina</span>
-            </h2>
-            <p className="text-navy/70 font-body leading-relaxed mb-6" style={{ fontSize: "1rem" }}>
-              CommunityForce Marine is berthed at Prince William Marina on the
-              historic Occoquan River in Woodbridge, Virginia — a full-service
-              resort marina with exceptional amenities and easy access from the
-              Northern Virginia and DC federal corridor.
-            </p>
-
-            <div className="flex flex-col gap-4 mb-8">
-              {[
-                { icon: "📍", text: "Prince William Marina, Occoquan River, Woodbridge VA 22191" },
-                { icon: "🚗", text: "Convenient access from I-95 and Route 1 — 25 miles south of DC" },
-                { icon: "🏖️", text: "Full-service resort marina with Boatel, pool, fuel dock, ship store, and waterfront amenities" },
-                { icon: "⛵", text: "Over 300 wet slips and dry storage — a premier boating destination on the Occoquan" },
-                { icon: "⚓", text: "Scenic river cruising on the historic Occoquan River" },
-                { icon: "🌿", text: "Lush Virginia woodland shoreline — a true escape from the city" },
-              ].map((item) => (
-                <div key={item.text} className="flex items-start gap-3">
-                  <span style={{ fontSize: "1.1rem" }}>{item.icon}</span>
-                  <p className="text-navy/70 font-body" style={{ fontSize: "0.9rem", lineHeight: "1.6" }}>
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              {[IMAGES.pwmDock, IMAGES.pwmDeck, IMAGES.marina5, IMAGES.marina8].map((src, i) => (
-                <div key={i} className="photo-card aspect-video">
-                  <img src={src} alt={`Marina photo ${i + 1}`} className="w-full h-full object-cover" />
-                </div>
-              ))}
-            </div>
+              The Marina
+            </span>
+            <div className="h-px w-10 bg-brass" />
           </div>
+          <h2
+            className="font-display font-bold text-navy mb-4"
+            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+          >
+            Prince William Marina
+            <br />
+            <span className="text-brass">Resort & Marina</span>
+          </h2>
+          <p className="text-navy/65 font-body leading-relaxed max-w-2xl mx-auto" style={{ fontSize: "1rem" }}>
+            CommunityForce Marine is berthed at Prince William Marina on the historic Occoquan River
+            in Woodbridge, Virginia — a full-service resort marina with exceptional amenities and
+            easy access from the Northern Virginia and DC federal corridor.
+          </p>
+        </div>
+
+        {/* Main photo grid — 3 columns, 2 rows */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3 reveal">
+          {/* Large featured photo */}
+          <div className="photo-card md:col-span-2 aspect-video">
+            <img src={marinaPhotos[0].src} alt={marinaPhotos[0].alt} className="w-full h-full object-cover" />
+          </div>
+          {/* Tall side photo */}
+          <div className="photo-card aspect-video md:aspect-auto md:row-span-2" style={{ minHeight: "280px" }}>
+            <img src={marinaPhotos[5].src} alt={marinaPhotos[5].alt} className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 reveal">
+          {marinaPhotos.slice(1, 5).map((photo, i) => (
+            <div key={i} className="photo-card aspect-square">
+              <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </div>
+
+        {/* Amenities strip */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+          {[
+            { icon: "📍", label: "Location", text: "Prince William Marina, Occoquan River, Woodbridge VA 22191" },
+            { icon: "🚗", label: "Access", text: "25 miles south of DC via I-95 & Route 1 — easy for Northern Virginia clients" },
+            { icon: "🍽️", label: "Dining", text: "The Electric Palm Restaurant — waterfront dining steps from the dock" },
+            { icon: "🏖️", label: "Facilities", text: "Pool, fuel dock, ship store, Boatel, and full waterfront resort amenities" },
+            { icon: "⛵", label: "Slips", text: "Over 300 wet slips and dry storage — Northern Virginia's premier boating destination" },
+            { icon: "🌿", label: "Setting", text: "Lush Virginia woodland shoreline on the scenic historic Occoquan River" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-start gap-4 p-5 rounded-lg" style={{ background: "oklch(0.97 0.002 240)" }}>
+              <span style={{ fontSize: "1.4rem", lineHeight: 1 }}>{item.icon}</span>
+              <div>
+                <p className="font-body font-semibold text-navy mb-1" style={{ fontSize: "0.85rem", letterSpacing: "0.04em", textTransform: "uppercase" }}>{item.label}</p>
+                <p className="text-navy/65 font-body" style={{ fontSize: "0.875rem", lineHeight: "1.6" }}>{item.text}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
