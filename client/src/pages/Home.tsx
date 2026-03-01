@@ -50,6 +50,18 @@ const IMAGES = {
   marina6: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0097_46e54073.JPG",
   marina7: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0098_0d418f81.JPG",
   marina8: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0787_03fa7333.JPG",
+  // New cockpit & interior photos
+  cockpit1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage1_47ab1ea0.jpg",
+  cockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage4_9458350e.jpg",
+  cockpit5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage5_a6837624.jpg",
+  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8293_f0a2b0b1.jpg",
+  galley1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8296_87b61edd.jpg",
+  stateroomDoors: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b6_536f6ef7.jpg",
+  bathroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8270_926e37c0.jpg",
+  fridge: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8273_257a8533.jpg",
+  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8276_22c05a58.jpg",
+  vanity: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8278_e002a5cd.jpg",
+  galley2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8272_3c7fce3a.jpg",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
@@ -132,6 +144,13 @@ function Navigation() {
               {item.label}
             </button>
           ))}
+          <a
+            href="/social-venue"
+            className="nav-link text-white/85 hover:text-white transition-colors"
+            style={{ textDecoration: "none" }}
+          >
+            Social Charters
+          </a>
           <button
             onClick={() => scrollTo("inquiry")}
             className="btn-brass"
@@ -171,9 +190,9 @@ function Navigation() {
             {[
               { label: "The Vessel", id: "vessel" },
               { label: "Charter Packages", id: "packages" },
-              { label: "Gallery", id: "gallery" },
-              { label: "Business Venue", id: "venue" },
-              { label: "The Marina", id: "marina" },
+            { label: "Gallery", id: "gallery" },
+            { label: "Business Venue", id: "venue" },
+            { label: "The Marina", id: "marina" },
             ].map((item) => (
               <button
                 key={item.id}
@@ -183,6 +202,13 @@ function Navigation() {
                 {item.label}
               </button>
             ))}
+            <a
+              href="/social-venue"
+              className="text-white/85 text-left font-body font-medium py-1"
+              style={{ textDecoration: "none" }}
+            >
+              Social Charters
+            </a>
             <button
               onClick={() => scrollTo("inquiry")}
               className="btn-brass mt-2 self-start"
@@ -688,26 +714,48 @@ function CharterPackages() {
 function GallerySection() {
   const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const galleryImages = [
-    { src: IMAGES.boat1, alt: "Vessel exterior at marina" },
-    { src: IMAGES.boat7, alt: "Yacht on the water" },
-    { src: IMAGES.boat8, alt: "Vessel at dock" },
-    { src: IMAGES.interior1, alt: "Vessel interior" },
-    { src: IMAGES.interior2, alt: "Salon and seating" },
-    { src: IMAGES.interior3, alt: "Cockpit area" },
-    { src: IMAGES.interior4, alt: "Flybridge view" },
-    { src: IMAGES.interior5, alt: "Galley" },
-    { src: IMAGES.interior6, alt: "Stateroom" },
-    { src: IMAGES.marina1, alt: "Prince William Marina" },
-    { src: IMAGES.marina2, alt: "Marina resort" },
-    { src: IMAGES.marina4, alt: "Occoquan River" },
+  const galleryCategories = [
+    { label: "All", key: "all" },
+    { label: "Exterior", key: "exterior" },
+    { label: "Interior", key: "interior" },
+    { label: "Marina", key: "marina" },
   ];
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const allGalleryImages = [
+    { src: IMAGES.boat1, alt: "Vessel exterior at marina", cat: "exterior" },
+    { src: IMAGES.boat7, alt: "Yacht on the water", cat: "exterior" },
+    { src: IMAGES.boat8, alt: "Vessel at dock", cat: "exterior" },
+    { src: IMAGES.boat2, alt: "Sea Ray 390 exterior", cat: "exterior" },
+    { src: IMAGES.cockpit1, alt: "Helm station and cockpit", cat: "interior" },
+    { src: IMAGES.cockpit4, alt: "Cockpit seating area", cat: "interior" },
+    { src: IMAGES.cockpit5, alt: "Aft cockpit bench seating", cat: "interior" },
+    { src: IMAGES.salon, alt: "Salon curved leather seating", cat: "interior" },
+    { src: IMAGES.stateroom, alt: "Master stateroom with queen berth", cat: "interior" },
+    { src: IMAGES.stateroomDoors, alt: "Stateroom with vanity", cat: "interior" },
+    { src: IMAGES.vanity, alt: "Master head vanity", cat: "interior" },
+    { src: IMAGES.bathroom, alt: "Head with stand-up shower", cat: "interior" },
+    { src: IMAGES.galley2, alt: "Full galley with appliances", cat: "interior" },
+    { src: IMAGES.galley1, alt: "Galley and companionway", cat: "interior" },
+    { src: IMAGES.fridge, alt: "Galley refrigerator", cat: "interior" },
+    { src: IMAGES.interior1, alt: "Vessel interior", cat: "interior" },
+    { src: IMAGES.marina1, alt: "Prince William Marina", cat: "marina" },
+    { src: IMAGES.marina2, alt: "Marina resort waterfront", cat: "marina" },
+    { src: IMAGES.marina4, alt: "Occoquan River", cat: "marina" },
+    { src: IMAGES.pwmAerialSummer, alt: "Marina aerial view", cat: "marina" },
+    { src: IMAGES.pwmDock, alt: "Marina dock walkway", cat: "marina" },
+    { src: IMAGES.marina8, alt: "Marina resort facilities", cat: "marina" },
+  ];
+
+  const galleryImages = activeCategory === "all"
+    ? allGalleryImages
+    : allGalleryImages.filter((img) => img.cat === activeCategory);
 
   return (
     <section id="gallery" className="bg-navy-dark py-24">
       <div className="container">
         {/* Header */}
-        <div className="reveal mb-12">
+        <div className="reveal mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-10 bg-brass" />
             <span
@@ -725,20 +773,41 @@ function GallerySection() {
           </h2>
         </div>
 
+        {/* Category filter tabs */}
+        <div className="reveal flex flex-wrap gap-3 mb-10">
+          {galleryCategories.map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => setActiveCategory(cat.key)}
+              className="font-body uppercase tracking-widest transition-all"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.18em",
+                padding: "0.5rem 1.25rem",
+                border: activeCategory === cat.key ? "1px solid oklch(0.72 0.12 75)" : "1px solid oklch(0.72 0.12 75 / 0.3)",
+                background: activeCategory === cat.key ? "oklch(0.72 0.12 75)" : "transparent",
+                color: activeCategory === cat.key ? "oklch(0.10 0.04 240)" : "oklch(0.72 0.12 75)",
+              }}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         {/* Masonry-style grid */}
         <div
           className="grid gap-3 reveal"
           style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gridAutoRows: "220px",
+            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+            gridAutoRows: "210px",
           }}
         >
           {galleryImages.map((img, i) => (
             <div
-              key={i}
+              key={img.src + i}
               className="photo-card cursor-pointer"
               style={{
-                gridRow: i === 0 || i === 6 ? "span 2" : "span 1",
+                gridRow: i === 0 || i === 7 ? "span 2" : "span 1",
               }}
               onClick={() => setLightbox(img.src)}
             >
@@ -1417,6 +1486,13 @@ function Footer() {
                   {item.label}
                 </button>
               ))}
+              <a
+                href="/social-venue"
+                className="text-white/50 hover:text-brass transition-colors text-left font-body"
+                style={{ fontSize: "0.875rem", textDecoration: "none" }}
+              >
+                Social Charters
+              </a>
             </div>
           </div>
 
