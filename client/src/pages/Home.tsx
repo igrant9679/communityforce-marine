@@ -11,10 +11,15 @@ import { toast } from "sonner";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   // Generated hero images
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_bg-dxhaPCX5sh992qdXrg57Gx.webp",
+  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_searay390-9gDZ9VajyaQk9r4z9XcSgV.webp",
   heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
-  corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/corporate_meeting-mpLBabBSCAiHbUMz6YNFig.webp",
+  corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/salon_meeting-2NVdQWiEwGrYcBMNJBqP2a.webp",
   marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
+  // PWMarina facility photos
+  pwmDock: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_dock_view_b7910622.jpg",
+  pwmDeck: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_deck_view_248e4990.jpg",
+  pwmAerialFall: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_fall_c2bb8f09.jpg",
+  pwmAerialSummer: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_summer_72822424.jpg",
   // Actual boat photos
   boat1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8289_bc046952.JPEG",
   boat2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8290_01cfc281.JPEG",
@@ -276,9 +281,9 @@ function HeroSection() {
           <div className="mt-16 flex flex-wrap gap-8">
             {[
               { value: "41'9\"", label: "Motor Yacht" },
-              { value: "960 hp", label: "Twin Cummins Diesels" },
+              { value: "740 hp", label: "Twin MerCruiser Gas" },
               { value: "8 Guests", label: "Max Capacity" },
-              { value: "~300 hrs", label: "Engine Hours" },
+              { value: "~1,100 hrs", label: "Engine Hours" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div
@@ -372,9 +377,9 @@ function VesselSection() {
   const specs = [
     { label: "Length Overall", value: "41'9\"" },
     { label: "Beam", value: "14'3\"" },
-    { label: "Engines", value: "Twin Cummins 6CTA 8.3 Diesel, 480 hp each" },
-    { label: "Total Power", value: "960 hp" },
-    { label: "Engine Hours", value: "~300 hours" },
+    { label: "Engines", value: "Twin MerCruiser 8.1 S Horizon Gas Inboards, 370 hp each" },
+    { label: "Total Power", value: "740 hp" },
+    { label: "Engine Hours", value: "~1,100 hours (1,104 / 1,101)" },
     { label: "Top Speed", value: "28 knots" },
     { label: "Cruise Speed", value: "23 knots" },
     { label: "Staterooms", value: "2 private staterooms, sleeps 4" },
@@ -410,10 +415,10 @@ function VesselSection() {
             className="mt-4 text-navy/65 font-body max-w-2xl leading-relaxed"
             style={{ fontSize: "1rem" }}
           >
-            A premium 41'9" flybridge motor yacht with twin Cummins diesel engines,
-            two private staterooms, a full galley, and a spacious cockpit with wet bar.
-            At approximately 300 engine hours, the powertrain is essentially new —
-            a significant trust signal for every guest aboard.
+            A premium 41'9" flybridge motor yacht powered by twin MerCruiser 8.1 S Horizon
+            gas inboards (370 hp each), two private staterooms, a full galley, and a spacious cockpit
+            with wet bar. At approximately 1,100 engine hours, the vessel is well-maintained and
+            ready for an exceptional charter experience.
           </p>
         </div>
 
@@ -880,19 +885,29 @@ function MarinaSection() {
     <section id="marina" className="bg-white py-24">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Photos */}
+          {/* Photos — expanded marina grid */}
           <div className="reveal order-2 lg:order-1">
             <div className="grid grid-cols-2 gap-3">
-              <div className="photo-card aspect-[3/4] col-span-1">
-                <img src={IMAGES.marinaAerial} alt="Prince William Marina aerial" className="w-full h-full object-cover" />
+              <div className="photo-card aspect-[3/4] col-span-1 row-span-2">
+                <img src={IMAGES.pwmAerialSummer} alt="Prince William Marina aerial view" className="w-full h-full object-cover" />
               </div>
-              <div className="flex flex-col gap-3">
-                <div className="photo-card aspect-square">
-                  <img src={IMAGES.marina2} alt="Marina resort" className="w-full h-full object-cover" />
-                </div>
-                <div className="photo-card aspect-square">
-                  <img src={IMAGES.marina4} alt="Occoquan River" className="w-full h-full object-cover" />
-                </div>
+              <div className="photo-card aspect-square">
+                <img src={IMAGES.pwmDeck} alt="Marina deck and docks" className="w-full h-full object-cover" />
+              </div>
+              <div className="photo-card aspect-square">
+                <img src={IMAGES.marina2} alt="Marina resort waterfront" className="w-full h-full object-cover" />
+              </div>
+            </div>
+            {/* Second row */}
+            <div className="grid grid-cols-3 gap-3 mt-3">
+              <div className="photo-card aspect-square">
+                <img src={IMAGES.pwmDock} alt="Marina dock walkway" className="w-full h-full object-cover" />
+              </div>
+              <div className="photo-card aspect-square">
+                <img src={IMAGES.marina4} alt="Occoquan River" className="w-full h-full object-cover" />
+              </div>
+              <div className="photo-card aspect-square">
+                <img src={IMAGES.marina8} alt="Marina resort facilities" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -927,7 +942,8 @@ function MarinaSection() {
               {[
                 { icon: "📍", text: "Prince William Marina, Occoquan River, Woodbridge VA 22191" },
                 { icon: "🚗", text: "Convenient access from I-95 and Route 1 — 25 miles south of DC" },
-                { icon: "🏖️", text: "Full-service resort marina with restaurant, pool, and waterfront amenities" },
+                { icon: "🏖️", text: "Full-service resort marina with Boatel, pool, fuel dock, ship store, and waterfront amenities" },
+                { icon: "⛵", text: "Over 300 wet slips and dry storage — a premier boating destination on the Occoquan" },
                 { icon: "⚓", text: "Scenic river cruising on the historic Occoquan River" },
                 { icon: "🌿", text: "Lush Virginia woodland shoreline — a true escape from the city" },
               ].map((item) => (
@@ -941,7 +957,7 @@ function MarinaSection() {
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              {[IMAGES.marina5, IMAGES.marina6, IMAGES.marina7, IMAGES.marina8].map((src, i) => (
+              {[IMAGES.pwmDock, IMAGES.pwmDeck, IMAGES.marina5, IMAGES.marina8].map((src, i) => (
                 <div key={i} className="photo-card aspect-video">
                   <img src={src} alt={`Marina photo ${i + 1}`} className="w-full h-full object-cover" />
                 </div>
