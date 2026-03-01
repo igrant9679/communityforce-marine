@@ -11,7 +11,7 @@ import { toast } from "sonner";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   // Generated hero images
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/new_homepage_hero_53b95ece.png",
+  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/NewHomePageImage_d6cf970d.png",
   heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
   corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/salon_meeting-2NVdQWiEwGrYcBMNJBqP2a.webp",
   marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
@@ -112,7 +112,11 @@ function Navigation() {
     >
       <div className="container flex items-center justify-between">
         {/* Wordmark */}
-        <div className="flex flex-col leading-none">
+        <a
+          href="/"
+          className="flex flex-col leading-none"
+          style={{ textDecoration: "none" }}
+        >
           <span
             className="text-white font-display font-bold tracking-wide"
             style={{ fontSize: "1.25rem", letterSpacing: "0.02em" }}
@@ -125,7 +129,7 @@ function Navigation() {
           >
             Marine
           </span>
-        </div>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
