@@ -20,6 +20,11 @@ const IMAGES = {
   pwmDeck: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_deck_view_248e4990.jpg",
   pwmAerialFall: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_fall_c2bb8f09.jpg",
   pwmAerialSummer: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_summer_72822424.jpg",
+  // Business meeting photos
+  meeting1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting1_8254a3d6.png",
+  meeting2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting2_c3f621f0.png",
+  meeting4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting4_1e88b976.png",
+  meeting5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting5_a78c8faf.png",
   // Actual boat photos
   boat1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8289_bc046952.JPEG",
   boat2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8290_01cfc281.JPEG",
@@ -781,7 +786,8 @@ function BusinessVenueSection() {
   return (
     <section id="venue" className="bg-ivory py-24">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Top: content + hero photo */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
           {/* Content */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-4">
@@ -852,13 +858,13 @@ function BusinessVenueSection() {
             </button>
           </div>
 
-          {/* Photo */}
+          {/* Hero photo */}
           <div className="reveal">
             <div className="relative">
               <div className="photo-card aspect-[4/5]">
                 <img
-                  src={IMAGES.corporateMeeting}
-                  alt="Executive meeting aboard yacht"
+                  src={IMAGES.meeting2}
+                  alt="Five executives in business meeting aboard yacht salon"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -870,6 +876,42 @@ function BusinessVenueSection() {
               <div
                 className="absolute -top-4 -right-4 w-16 h-16 border border-brass opacity-30"
                 style={{ zIndex: -1 }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Photo gallery strip — three additional meeting images */}
+        <div className="reveal">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-10 bg-brass" />
+            <span
+              className="text-brass font-body font-medium uppercase tracking-widest"
+              style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}
+            >
+              Inside the Venue
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.meeting1}
+                alt="Four executives in business meeting in yacht salon"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.meeting5}
+                alt="Team meeting with marina water view through yacht windows"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.meeting4}
+                alt="Three professionals reviewing documents aboard yacht at marina"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
