@@ -23,6 +23,10 @@ const IMAGES = {
   marina1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b1_814d2b40.jpg",
   marina2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b5_f98c1238.jpg",
   pwmAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_summer_72822424.jpg",
+  // Social / family moments
+  fatherSonFishing: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/Fatherandsonfishing_a1fe06ce.png",
+  momWithKids: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/ChatGPTImageMar10,2026,04_22_24PM_38e85d33.png",
+  womanSunbathing: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/womansunbathing_db283775.png",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
@@ -500,6 +504,105 @@ function PackagesSection() {
             music, custom event décor. All guests must sign a liability waiver
             prior to boarding. Minimum booking is 3 hours.
           </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Social Moments Section ─────────────────────────────────────────────────
+function SocialMomentsSection() {
+  const moments = [
+    {
+      img: IMAGES.fatherSonFishing,
+      alt: "Father and son fishing from the cockpit",
+      caption: "Father & Son",
+      sub: "Fishing off the cockpit on the Occoquan",
+    },
+    {
+      img: IMAGES.momWithKids,
+      alt: "Mom relaxing in the salon with three children",
+      caption: "Family Time",
+      sub: "Comfortable salon seating for the whole crew",
+    },
+    {
+      img: IMAGES.womanSunbathing,
+      alt: "Woman relaxing on the bow in the sun",
+      caption: "Pure Relaxation",
+      sub: "Unwind on the bow as the river rolls by",
+    },
+  ];
+
+  return (
+    <section id="social-moments" className="bg-ivory py-24">
+      <div className="container">
+        {/* Header */}
+        <div className="reveal mb-14 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-10 bg-brass" />
+            <span
+              className="text-brass font-body font-medium uppercase tracking-widest"
+              style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}
+            >
+              Real Moments on the Water
+            </span>
+            <div className="h-px w-10 bg-brass" />
+          </div>
+          <h2
+            className="font-display font-bold text-navy mb-4"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+          >
+            Every Outing Tells a Story
+          </h2>
+          <p className="text-navy/60 font-body max-w-xl mx-auto leading-relaxed" style={{ fontSize: "1rem" }}>
+            From a father teaching his son to fish, to a mom creating memories
+            with her kids, to a quiet afternoon soaking up the sun — the Sea Ray
+            390 is the backdrop for moments that last a lifetime.
+          </p>
+        </div>
+
+        {/* Photo grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+          {moments.map((m) => (
+            <div key={m.caption} className="group flex flex-col">
+              <div
+                className="photo-card overflow-hidden"
+                style={{ aspectRatio: "4/5" }}
+              >
+                <img
+                  src={m.img}
+                  alt={m.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Subtle gradient overlay at bottom */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-1/3"
+                  style={{
+                    background:
+                      "linear-gradient(to top, oklch(0.10 0.04 240 / 0.55), transparent)",
+                  }}
+                />
+              </div>
+              <div className="mt-4 pl-1">
+                <h4 className="font-display font-semibold text-navy" style={{ fontSize: "1.05rem" }}>
+                  {m.caption}
+                </h4>
+                <p className="text-navy/55 font-body mt-1" style={{ fontSize: "0.875rem" }}>
+                  {m.sub}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA strip */}
+        <div className="mt-14 reveal text-center">
+          <button
+            onClick={() => document.getElementById("inquiry")?.scrollIntoView({ behavior: "smooth" })}
+            className="btn-brass"
+          >
+            Plan Your Charter
+          </button>
         </div>
       </div>
     </section>
@@ -1115,6 +1218,7 @@ export default function SocialVenue() {
       <HeroSection />
       <OccasionStrip />
       <PackagesSection />
+      <SocialMomentsSection />
       <ExperienceSection />
       <VesselFeaturesSection />
       <FAQSection />
