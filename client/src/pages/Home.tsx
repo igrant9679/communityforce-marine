@@ -50,13 +50,19 @@ const IMAGES = {
   marina6: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0097_46e54073.JPG",
   marina7: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0098_0d418f81.JPG",
   marina8: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0787_03fa7333.JPG",
-  // New high-res marina facility photos
-  marinaDockSummer: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_dock_summer_41bf94a0.jpg",
-  marinaAerialBoats: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial_boats_ba504df4.jpg",
-  marinaElectricPalm: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_electric_palm_3d555a4b.jpg",
-  marinaDockView: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_dock_view_cd921dd8.jpg",
-  marinaDeckPatio: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_deck_patio_fcd090ce.jpg",
-  marinaAerialFull: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial_full_57123f5f.jpg",
+  // New high-res marina facility photos (user-provided, Mar 2026)
+  pwPool1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_pool1_square_c48dece8.png",
+  pwBathhousePool: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_bathhouse_pool_portrait_3cde740c.png",
+  epalm3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/epalm3_portrait_ec73b49c.png",
+  pwPoolPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_pool_portrait_378eaa0e.png",
+  marinaAerialLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial_landscape_ee467009.png",
+  pwMarina1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_marina1_landscape_9425392b.png",
+  pwMarina2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_marina2_landscape_f37bf649.png",
+  epalm4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/epalm4_landscape_042d9aee.png",
+  epalm1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/epalm1_landscape_5616e665.png",
+  lunaSea1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/lunasea1_landscape_baeae85d.png",
+  lunaSea2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/lunasea2_landscape_d63608ce.png",
+  marina3Landscape: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina3_landscape_84f04340.png",
   // New cockpit & interior photos
   cockpit1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage1_47ab1ea0.jpg",
   cockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage4_9458350e.jpg",
@@ -1004,12 +1010,18 @@ function BusinessVenueSection() {
 // ─── Marina Section ───────────────────────────────────────────────────────────
 function MarinaSection() {
   const marinaPhotos = [
-    { src: IMAGES.marinaDockSummer, alt: "Prince William Marina dock — summer view" },
-    { src: IMAGES.marinaAerialBoats, alt: "Prince William Marina aerial — boats at slips" },
-    { src: IMAGES.marinaElectricPalm, alt: "The Electric Palm Restaurant at the Marina" },
-    { src: IMAGES.marinaDockView, alt: "Marina dock view with resort facilities" },
-    { src: IMAGES.marinaDeckPatio, alt: "Marina deck patio overlooking the river" },
-    { src: IMAGES.marinaAerialFull, alt: "Full aerial view of Prince William Marina" },
+    { src: IMAGES.marinaAerialLandscape, alt: "Prince William Marina aerial view" },
+    { src: IMAGES.pwMarina1, alt: "Prince William Marina dock" },
+    { src: IMAGES.pwMarina2, alt: "Prince William Marina waterfront" },
+    { src: IMAGES.marina3Landscape, alt: "Marina facilities landscape" },
+    { src: IMAGES.epalm1, alt: "The Electric Palm Restaurant" },
+    { src: IMAGES.epalm4, alt: "Electric Palm outdoor dining" },
+    { src: IMAGES.epalm3, alt: "Electric Palm restaurant interior" },
+    { src: IMAGES.lunaSea1, alt: "Luna Sea Bar & Grill" },
+    { src: IMAGES.lunaSea2, alt: "Luna Sea waterfront dining" },
+    { src: IMAGES.pwPool1, alt: "Prince William Marina pool" },
+    { src: IMAGES.pwPoolPortrait, alt: "Marina pool and resort" },
+    { src: IMAGES.pwBathhousePool, alt: "Marina bathhouse and pool" },
   ];
 
   return (
@@ -1042,20 +1054,29 @@ function MarinaSection() {
           </p>
         </div>
 
-        {/* Main photo grid — 3 columns, 2 rows */}
+        {/* Hero row: large aerial + tall portrait */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3 reveal">
-          {/* Large featured photo */}
           <div className="photo-card md:col-span-2 aspect-video">
             <img src={marinaPhotos[0].src} alt={marinaPhotos[0].alt} className="w-full h-full object-cover" />
           </div>
-          {/* Tall side photo */}
-          <div className="photo-card aspect-video md:aspect-auto md:row-span-2" style={{ minHeight: "280px" }}>
-            <img src={marinaPhotos[5].src} alt={marinaPhotos[5].alt} className="w-full h-full object-cover" />
+          <div className="photo-card aspect-video md:aspect-auto" style={{ minHeight: "280px" }}>
+            <img src={marinaPhotos[10].src} alt={marinaPhotos[10].alt} className="w-full h-full object-cover" />
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 reveal">
+
+        {/* Second row: 4 landscape thumbnails */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3 reveal">
           {marinaPhotos.slice(1, 5).map((photo, i) => (
-            <div key={i} className="photo-card aspect-square">
+            <div key={i} className="photo-card aspect-video">
+              <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover" />
+            </div>
+          ))}
+        </div>
+
+        {/* Third row: dining & pool — 4 more */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 reveal">
+          {marinaPhotos.slice(5, 9).map((photo, i) => (
+            <div key={i} className="photo-card aspect-video">
               <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover" />
             </div>
           ))}
@@ -1066,7 +1087,7 @@ function MarinaSection() {
           {[
             { icon: "📍", label: "Location", text: "Prince William Marina, Occoquan River, Woodbridge VA 22191" },
             { icon: "🚗", label: "Access", text: "25 miles south of DC via I-95 & Route 1 — easy for Northern Virginia clients" },
-            { icon: "🍽️", label: "Dining", text: "The Electric Palm Restaurant — waterfront dining steps from the dock" },
+            { icon: "🍽️", label: "Dining", text: "The Electric Palm Restaurant & Luna Sea Bar — waterfront dining steps from the dock" },
             { icon: "🏖️", label: "Facilities", text: "Pool, fuel dock, ship store, Boatel, and full waterfront resort amenities" },
             { icon: "⛵", label: "Slips", text: "Over 300 wet slips and dry storage — Northern Virginia's premier boating destination" },
             { icon: "🌿", label: "Setting", text: "Lush Virginia woodland shoreline on the scenic historic Occoquan River" },
