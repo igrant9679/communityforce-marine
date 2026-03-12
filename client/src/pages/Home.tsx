@@ -13,18 +13,26 @@ const IMAGES = {
   // Generated hero images
   heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/NewHomePageImage_d6cf970d.png",
   heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
-  corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/salon_meeting-2NVdQWiEwGrYcBMNJBqP2a.webp",
+  corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
   marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
   // PWMarina facility photos
   pwmDock: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_dock_view_b7910622.jpg",
   pwmDeck: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_deck_view_248e4990.jpg",
   pwmAerialFall: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_fall_c2bb8f09.jpg",
   pwmAerialSummer: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_summer_72822424.jpg",
-  // Business meeting photos
-  meeting1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting1_8254a3d6.png",
-  meeting2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting2_c3f621f0.png",
-  meeting4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting4_1e88b976.png",
-  meeting5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/meeting5_a78c8faf.png",
+  // Business meeting photos (updated Mar 2026 — real yacht meeting scenes)
+  meeting1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_3prof_salon_6b61f1b9.png",
+  meeting2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_marina_41552692.png",
+  meeting4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_group_salon_working_4c0edee9.png",
+  meeting5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_group_salon_45d05ab0.png",
+  // Additional business meeting photos
+  biz3ProfRiver: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_3prof_river_b1932ffa.png",
+  biz3ProfSalon2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_3prof_salon2_6ce3facd.png",
+  biz4ProfCarpet: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
+  bizCockpit1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit1_5115a092.png",
+  bizCockpit2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit2_d9eeabea.png",
+  bizCockpit3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit3_72a74766.png",
+  bizCockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit4_584f7faa.png",
   // Actual boat photos
   boat1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8289_bc046952.JPEG",
   boat2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8290_01cfc281.JPEG",
@@ -949,8 +957,8 @@ function BusinessVenueSection() {
             <div className="relative">
               <div className="photo-card aspect-[4/5]">
                 <img
-                  src={IMAGES.meeting2}
-                  alt="Five executives in business meeting aboard yacht salon"
+                  src={IMAGES.meeting1}
+                  alt="Three professionals in business meeting aboard yacht salon"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -967,7 +975,7 @@ function BusinessVenueSection() {
           </div>
         </div>
 
-        {/* Photo gallery strip — three additional meeting images */}
+        {/* Photo gallery strip — all new meeting images */}
         <div className="reveal">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10 bg-brass" />
@@ -978,25 +986,74 @@ function BusinessVenueSection() {
               Inside the Venue
             </span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Row 1: 3 photos */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             <div className="photo-card aspect-[4/3]">
               <img
-                src={IMAGES.meeting1}
-                alt="Four executives in business meeting in yacht salon"
+                src={IMAGES.meeting2}
+                alt="Four professionals in business meeting at marina cockpit"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="photo-card aspect-[4/3]">
               <img
-                src={IMAGES.meeting5}
-                alt="Team meeting with marina water view through yacht windows"
+                src={IMAGES.biz3ProfRiver}
+                alt="Three professionals meeting aboard yacht on the river"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.biz3ProfSalon2}
+                alt="Business meeting in yacht salon with documents"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          {/* Row 2: 4 photos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.bizCockpit1}
+                alt="Professionals meeting in yacht cockpit with water view"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.bizCockpit2}
+                alt="Business team reviewing charts in yacht cockpit"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.bizCockpit3}
+                alt="Three professionals with tablet and documents in cockpit"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="photo-card aspect-[4/3]">
+              <img
+                src={IMAGES.bizCockpit4}
+                alt="Professionals discussing strategy in yacht cockpit"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          {/* Row 3: 2 salon photos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div className="photo-card aspect-video">
               <img
                 src={IMAGES.meeting4}
-                alt="Three professionals reviewing documents aboard yacht at marina"
+                alt="Four professionals in yacht salon working session"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="photo-card aspect-video">
+              <img
+                src={IMAGES.meeting5}
+                alt="Business group in yacht salon with river views"
                 className="w-full h-full object-cover"
               />
             </div>
