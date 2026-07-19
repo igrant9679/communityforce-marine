@@ -1396,14 +1396,14 @@ function InquiryForm() {
               ))}
             </div>
 
-            {/* Sunset image */}
+            {/* Real boat photo */}
             <div className="mt-10 photo-card aspect-video">
               <img
-                src={IMAGES.heroSunset}
-                alt="Yacht at sunset"
+                src={IMAGES.boatReal1}
+                alt="Sea Ray 390 Motor Yacht at Prince William Marina"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-navy/30" />
+              <div className="absolute inset-0 bg-navy/20" />
             </div>
           </div>
 
