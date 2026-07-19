@@ -1,5 +1,5 @@
 /**
- * CommunityForce Marine — Social Venue Page
+ * Luna Sea Marine — Social Venue Page
  * Design: Coastal Modernism
  * Deep Navy + Brass + Ivory | Playfair Display + DM Sans
  * Target: Families, couples, and friend groups for leisure charters
@@ -77,18 +77,27 @@ function Navigation() {
     >
       <div className="container flex items-center justify-between">
         <a href="/" className="flex flex-col leading-none">
-          <span
-            className="text-white font-display font-bold tracking-wide"
-            style={{ fontSize: "1.25rem", letterSpacing: "0.02em" }}
-          >
-            CommunityForce
-          </span>
-          <span
-            className="font-body font-light tracking-widest uppercase"
-            style={{ fontSize: "0.65rem", letterSpacing: "0.22em", color: "oklch(0.72 0.12 75)" }}
-          >
-            Marine
-          </span>
+          <div className="flex items-center gap-2">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+              alt="Luna Sea Marine logo"
+              style={{ width: "32px", height: "32px", objectFit: "contain" }}
+            />
+            <div className="flex flex-col leading-none">
+              <span
+                className="text-white font-display font-bold tracking-wide"
+                style={{ fontSize: "1.15rem", letterSpacing: "0.02em" }}
+              >
+                Luna Sea
+              </span>
+              <span
+                className="font-body font-light tracking-widest uppercase"
+                style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "oklch(0.72 0.12 75)" }}
+              >
+                Marine
+              </span>
+            </div>
+          </div>
         </a>
 
         {/* Desktop nav */}
@@ -929,7 +938,7 @@ function InquiryForm() {
       `How They Heard About Us: ${form.hearAbout || "Not specified"}\n\n` +
       `Additional Message:\n${form.message || "None"}`
     );
-    window.location.href = `mailto:idris.grant@communityforce.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:idris.grant@lunaseamarine.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
     toast.success("Opening your email client to send the inquiry!");
   };
@@ -1130,12 +1139,19 @@ function Footer() {
         <div className="gold-rule mb-12" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           <div>
-            <div className="mb-4">
-              <div className="text-white font-display font-bold" style={{ fontSize: "1.25rem" }}>
-                CommunityForce Marine
-              </div>
-              <div className="text-brass font-body font-light uppercase tracking-widest" style={{ fontSize: "0.65rem", letterSpacing: "0.22em" }}>
-                Social Charter · Woodbridge, Virginia
+            <div className="mb-4 flex items-center gap-3">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+                alt="Luna Sea Marine"
+                style={{ width: "40px", height: "40px", objectFit: "contain" }}
+              />
+              <div>
+                <div className="text-white font-display font-bold" style={{ fontSize: "1.25rem" }}>
+                  Luna Sea Marine
+                </div>
+                <div className="text-brass font-body font-light uppercase tracking-widest" style={{ fontSize: "0.65rem", letterSpacing: "0.22em" }}>
+                  Social Charter · Woodbridge, Virginia
+                </div>
               </div>
             </div>
             <p className="text-white/45 font-body leading-relaxed" style={{ fontSize: "0.875rem" }}>
@@ -1197,10 +1213,10 @@ function Footer() {
         <div className="gold-rule mb-6" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 font-body" style={{ fontSize: "0.8rem" }}>
-            © 2026 CommunityForce Marine LLC. All rights reserved.
+            © 2026 Luna Sea Marine LLC. All rights reserved.
           </p>
           <p className="text-white/30 font-body" style={{ fontSize: "0.8rem" }}>
-            A CommunityForce venture · Prince William Marina · Woodbridge, Virginia
+            A Luna Sea venture · Prince William Marina · Woodbridge, Virginia
           </p>
         </div>
       </div>

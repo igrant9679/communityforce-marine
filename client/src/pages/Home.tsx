@@ -1,5 +1,5 @@
 /*
- * CommunityForce Marine — Home Page
+ * Luna Sea Marine — Home Page
  * Design: Coastal Modernism
  * Deep Navy + Brass + Ivory | Playfair Display + DM Sans
  * Sections: Nav, Hero, About, Vessel, Charter Packages, Gallery, Business Venue, Inquiry Form, Footer
@@ -138,18 +138,27 @@ function Navigation() {
           className="flex flex-col leading-none"
           style={{ textDecoration: "none" }}
         >
-          <span
-            className="text-white font-display font-bold tracking-wide"
-            style={{ fontSize: "1.25rem", letterSpacing: "0.02em" }}
-          >
-            CommunityForce
-          </span>
-          <span
-            className="text-brass-light font-body font-light tracking-widest uppercase"
-            style={{ fontSize: "0.65rem", letterSpacing: "0.22em" }}
-          >
-            Marine
-          </span>
+          <div className="flex items-center gap-2">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+              alt="Luna Sea Marine logo"
+              style={{ width: "32px", height: "32px", objectFit: "contain" }}
+            />
+            <div className="flex flex-col leading-none">
+              <span
+                className="text-white font-display font-bold tracking-wide"
+                style={{ fontSize: "1.15rem", letterSpacing: "0.02em" }}
+              >
+                Luna Sea
+              </span>
+              <span
+                className="text-brass-light font-body font-light tracking-widest uppercase"
+                style={{ fontSize: "0.6rem", letterSpacing: "0.22em" }}
+              >
+                Marine
+              </span>
+            </div>
+          </div>
         </a>
 
         {/* Desktop nav */}
@@ -264,7 +273,7 @@ function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={IMAGES.heroBg}
-          alt="CommunityForce Marine yacht at sunset"
+          alt="Luna Sea Marine yacht at sunset"
           className="w-full h-full object-cover"
           style={{ objectPosition: "center 60%" }}
         />
@@ -900,7 +909,7 @@ function BusinessVenueSection() {
               A Floating Conference Room Unlike Any Other
             </h2>
             <p className="text-navy/70 font-body leading-relaxed mb-6" style={{ fontSize: "1rem" }}>
-              CommunityForce Marine serves as a dedicated government client meeting
+              Luna Sea Marine serves as a dedicated government client meeting
               venue — a premium, off-site setting for program reviews, contract
               briefings, and strategic working sessions with senior agency leaders.
             </p>
@@ -919,7 +928,7 @@ function BusinessVenueSection() {
                 },
                 {
                   title: "Senior Leadership Ready",
-                  desc: "Hosted by CommunityForce principals — ideal for SES, GS-15, and agency leadership.",
+                  desc: "Hosted by Luna Sea Marine principals — ideal for SES, GS-15, and agency leadership.",
                 },
                 {
                   title: "2–4 Sessions/Month",
@@ -1105,7 +1114,7 @@ function MarinaSection() {
             <span className="text-brass">Resort & Marina</span>
           </h2>
           <p className="text-navy/65 font-body leading-relaxed max-w-2xl mx-auto" style={{ fontSize: "1rem" }}>
-            CommunityForce Marine is berthed at Prince William Marina on the historic Occoquan River
+            Luna Sea Marine is berthed at Prince William Marina on the historic Occoquan River
             in Woodbridge, Virginia — a full-service resort marina with exceptional amenities and
             easy access from the Northern Virginia and DC federal corridor.
           </p>
@@ -1206,7 +1215,7 @@ function InquiryForm() {
       `How They Heard About Us: ${form.hearAbout || "Not specified"}\n\n` +
       `Additional Message:\n${form.message || "None"}`
     );
-    window.location.href = `mailto:idris.grant@communityforce.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:idris.grant@lunaseamarine.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
     toast.success("Opening your email client to send the inquiry!");
   };
@@ -1493,7 +1502,7 @@ function InquiryForm() {
                     <option value="boatsetter">Boatsetter / GetMyBoat</option>
                     <option value="google">Google Search</option>
                     <option value="linkedin">LinkedIn</option>
-                    <option value="communityforce">CommunityForce website</option>
+                    <option value="communityforce">Luna Sea Marine website</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -1532,18 +1541,25 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="mb-4">
-              <div
-                className="text-white font-display font-bold"
-                style={{ fontSize: "1.25rem" }}
-              >
-                CommunityForce Marine
-              </div>
-              <div
-                className="text-brass font-body font-light uppercase tracking-widest"
-                style={{ fontSize: "0.65rem", letterSpacing: "0.22em" }}
-              >
-                Premium Charter & Business Venue
+            <div className="mb-4 flex items-center gap-3">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+                alt="Luna Sea Marine"
+                style={{ width: "40px", height: "40px", objectFit: "contain" }}
+              />
+              <div>
+                <div
+                  className="text-white font-display font-bold"
+                  style={{ fontSize: "1.25rem" }}
+                >
+                  Luna Sea Marine
+                </div>
+                <div
+                  className="text-brass font-body font-light uppercase tracking-widest"
+                  style={{ fontSize: "0.65rem", letterSpacing: "0.22em" }}
+                >
+                  Premium Charter & Business Venue
+                </div>
               </div>
             </div>
             <p className="text-white/45 font-body leading-relaxed" style={{ fontSize: "0.875rem" }}>
@@ -1634,10 +1650,10 @@ function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 font-body" style={{ fontSize: "0.8rem" }}>
-            © 2026 CommunityForce Marine LLC. All rights reserved.
+            © 2026 Luna Sea Marine LLC. All rights reserved.
           </p>
           <p className="text-white/30 font-body" style={{ fontSize: "0.8rem" }}>
-            A CommunityForce venture · Prince William Marina · Woodbridge, Virginia
+            A Luna Sea venture · Prince William Marina · Woodbridge, Virginia
           </p>
         </div>
       </div>
