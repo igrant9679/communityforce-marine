@@ -1919,6 +1919,114 @@ function Footer() {
   );
 }
 
+// ─── Stay Aboard Teaser ─────────────────────────────────────────────────────
+function StayAboardTeaser() {
+  const HERO_NIGHT = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero-btKRnPjSYtgRTv3qF9BEEG.webp";
+  const SALON = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp";
+  const STATEROOM = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
+
+  return (
+    <section className="reveal relative overflow-hidden" style={{ background: "oklch(0.12 0.03 240)" }}>
+      {/* Background image with dark overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${HERO_NIGHT})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center 40%",
+        }}
+      />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, oklch(0.08 0.04 240 / 0.92) 45%, oklch(0.08 0.04 240 / 0.65) 100%)" }} />
+
+      <div className="container relative py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left — copy */}
+          <div>
+            <p className="font-body uppercase tracking-[0.2em] mb-4" style={{ fontSize: "0.75rem", color: "oklch(0.72 0.12 75)" }}>
+              New Experience
+            </p>
+            <h2 className="font-display font-bold text-white mb-6" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.1 }}>
+              Sleep Under the Stars<br />
+              <span style={{ color: "oklch(0.72 0.12 75)" }}>Aboard the Luna Sea</span>
+            </h2>
+            <p className="text-white/70 font-body leading-relaxed mb-8" style={{ fontSize: "1rem", maxWidth: "38ch" }}>
+              Skip the hotel. Wake up on the water. The Luna Sea is available for overnight stays
+              at Prince William Marina — your private 41'9" floating retreat on the Occoquan River,
+              starting at just $150 a night.
+            </p>
+
+            {/* Highlights */}
+            <div className="grid grid-cols-2 gap-4 mb-10">
+              {[
+                { icon: "🌙", label: "1–7 Night Stays" },
+                { icon: "🛏", label: "Queen Stateroom" },
+                { icon: "🍽", label: "Full Galley Kitchen" },
+                { icon: "🌊", label: "Swim Platform Access" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-3">
+                  <span style={{ fontSize: "1.1rem" }}>{item.icon}</span>
+                  <span className="text-white/75 font-body" style={{ fontSize: "0.875rem" }}>{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="/stay-aboard"
+                className="btn-brass inline-block"
+                style={{ padding: "0.85rem 2rem", fontSize: "0.85rem", textDecoration: "none" }}
+              >
+                View the Listing
+              </a>
+              <a
+                href="/stay-aboard"
+                className="inline-block font-body font-medium text-white/70 hover:text-white transition-colors"
+                style={{ padding: "0.85rem 0", fontSize: "0.85rem", textDecoration: "none" }}
+              >
+                From $150 / night →
+              </a>
+            </div>
+          </div>
+
+          {/* Right — photo pair */}
+          <div className="hidden lg:grid grid-cols-2 gap-4">
+            <div
+              className="rounded-sm overflow-hidden"
+              style={{ aspectRatio: "3/4", boxShadow: "0 20px 60px oklch(0 0 0 / 0.5)" }}
+            >
+              <img src={SALON} alt="Salon interior" className="w-full h-full object-cover" />
+            </div>
+            <div
+              className="rounded-sm overflow-hidden mt-8"
+              style={{ aspectRatio: "3/4", boxShadow: "0 20px 60px oklch(0 0 0 / 0.5)" }}
+            >
+              <img src={STATEROOM} alt="Master stateroom" className="w-full h-full object-cover" />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom strip — price + CTA */}
+        <div
+          className="mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6"
+          style={{ borderTop: "1px solid oklch(0.72 0.12 75 / 0.2)" }}
+        >
+          <div className="flex items-baseline gap-2">
+            <span className="font-display font-bold text-white" style={{ fontSize: "2rem" }}>$150</span>
+            <span className="text-white/50 font-body" style={{ fontSize: "0.875rem" }}>/ night · 1-night minimum</span>
+          </div>
+          <div className="flex items-center gap-6 text-white/50 font-body" style={{ fontSize: "0.8rem" }}>
+            <span>✓ Cleaning included</span>
+            <span>✓ Up to 4 guests</span>
+            <span>✓ Prince William Marina</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Main Home Component ───────────────────────────────────────────────────────
 export default function Home() {
   useScrollReveal();
@@ -1934,6 +2042,7 @@ export default function Home() {
       <CaptainBioSection />
       <BusinessVenueSection />
       <MarinaSection />
+      <StayAboardTeaser />
       <InquiryForm />
       <Footer />
     </div>
