@@ -750,7 +750,7 @@ function CharterPackages() {
 
 // ─── Gallery ──────────────────────────────────────────────────────────────────
 function GallerySection() {
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const galleryCategories = [
     { label: "All", key: "all" },
@@ -791,6 +791,22 @@ function GallerySection() {
   const galleryImages = activeCategory === "all"
     ? allGalleryImages
     : allGalleryImages.filter((img) => img.cat === activeCategory);
+
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevImage = () => setLightboxIndex((i) => (i !== null ? (i - 1 + galleryImages.length) % galleryImages.length : null));
+  const nextImage = () => setLightboxIndex((i) => (i !== null ? (i + 1) % galleryImages.length : null));
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") nextImage();
+      else if (e.key === "ArrowLeft") prevImage();
+      else if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxIndex, galleryImages.length]);
 
   return (
     <section id="gallery" className="bg-navy-dark py-24">
@@ -846,20 +862,25 @@ function GallerySection() {
           {galleryImages.map((img, i) => (
             <div
               key={img.src + i}
-              className="photo-card cursor-pointer"
+              className="photo-card cursor-pointer group"
               style={{
                 gridRow: i === 0 || i === 7 ? "span 2" : "span 1",
               }}
-              onClick={() => setLightbox(img.src)}
+              onClick={() => openLightbox(i)}
             >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-navy-dark/0 hover:bg-navy-dark/30 transition-colors duration-300 flex items-center justify-center">
-                <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 text-white text-2xl">
-                  ⊕
+              <div className="absolute inset-0 bg-navy-dark/0 group-hover:bg-navy-dark/40 transition-colors duration-300 flex items-end justify-start p-3">
+                <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div className="flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                    </svg>
+                    <span className="text-white font-body" style={{ fontSize: "0.7rem", letterSpacing: "0.1em" }}>ENLARGE</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -868,23 +889,86 @@ function GallerySection() {
       </div>
 
       {/* Lightbox */}
-      {lightbox && (
+      {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setLightbox(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.95)" }}
+          onClick={closeLightbox}
         >
-          <img
-            src={lightbox}
-            alt="Gallery full view"
-            className="max-w-full max-h-full object-contain"
-            style={{ maxHeight: "90vh" }}
-          />
+          {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-white text-3xl font-light"
-            onClick={() => setLightbox(null)}
+            className="absolute top-5 right-5 z-10 flex items-center justify-center rounded-full transition-colors"
+            style={{ width: 44, height: 44, background: "oklch(0.72 0.12 75 / 0.15)", border: "1px solid oklch(0.72 0.12 75 / 0.4)" }}
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            aria-label="Close"
           >
-            ×
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
           </button>
+
+          {/* Prev button */}
+          <button
+            className="absolute left-4 md:left-8 z-10 flex items-center justify-center rounded-full transition-all hover:scale-110"
+            style={{ width: 52, height: 52, background: "oklch(0.72 0.12 75 / 0.15)", border: "1px solid oklch(0.72 0.12 75 / 0.4)" }}
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            aria-label="Previous image"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          {/* Image + caption */}
+          <div
+            className="flex flex-col items-center gap-4 px-20 md:px-28"
+            style={{ maxWidth: "90vw", maxHeight: "90vh" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={galleryImages[lightboxIndex].src}
+              alt={galleryImages[lightboxIndex].alt}
+              className="object-contain rounded-sm"
+              style={{ maxWidth: "85vw", maxHeight: "78vh" }}
+            />
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-white/80 font-body text-center" style={{ fontSize: "0.875rem" }}>
+                {galleryImages[lightboxIndex].alt}
+              </p>
+              <p className="text-white/35 font-body" style={{ fontSize: "0.75rem" }}>
+                {lightboxIndex + 1} / {galleryImages.length}
+              </p>
+            </div>
+          </div>
+
+          {/* Next button */}
+          <button
+            className="absolute right-4 md:right-8 z-10 flex items-center justify-center rounded-full transition-all hover:scale-110"
+            style={{ width: 52, height: 52, background: "oklch(0.72 0.12 75 / 0.15)", border: "1px solid oklch(0.72 0.12 75 / 0.4)" }}
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            aria-label="Next image"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+          {/* Dot indicators */}
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-1.5">
+            {galleryImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
+                className="rounded-full transition-all"
+                style={{
+                  width: i === lightboxIndex ? 20 : 6,
+                  height: 6,
+                  background: i === lightboxIndex ? "oklch(0.72 0.12 75)" : "oklch(0.72 0.12 75 / 0.35)",
+                }}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       )}
     </section>
