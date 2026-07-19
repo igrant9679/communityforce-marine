@@ -189,6 +189,13 @@ function Navigation() {
           >
             Social Charters
           </a>
+          <a
+            href="/stay-aboard"
+            className="nav-link hover:text-white transition-colors"
+            style={{ textDecoration: "none", color: "oklch(0.72 0.12 75)" }}
+          >
+            Stay Aboard
+          </a>
           <button
             onClick={() => scrollTo("inquiry")}
             className="btn-brass"
@@ -246,6 +253,13 @@ function Navigation() {
               style={{ textDecoration: "none" }}
             >
               Social Charters
+            </a>
+            <a
+              href="/stay-aboard"
+              className="text-left font-body font-medium py-1"
+              style={{ textDecoration: "none", color: "oklch(0.72 0.12 75)" }}
+            >
+              Stay Aboard
             </a>
             <button
               onClick={() => scrollTo("inquiry")}
@@ -971,6 +985,98 @@ function GallerySection() {
           </div>
         </div>
       )}
+    </section>
+  );
+}
+
+// ─── Captain Bio Section ────────────────────────────────────────────────────
+function CaptainBioSection() {
+  return (
+    <section id="captain" className="bg-navy py-20">
+      <div className="container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Photo */}
+          <div className="reveal order-2 lg:order-1">
+            <div
+              className="relative overflow-hidden"
+              style={{ borderRadius: "2px" }}
+            >
+              <img
+                src={IMAGES.boatReal1}
+                alt="Captain Idris Grant aboard the Sea Ray 390 Motor Yacht"
+                className="w-full object-cover"
+                style={{ maxHeight: 480 }}
+              />
+              {/* Brass accent bar */}
+              <div
+                className="absolute bottom-0 left-0 right-0 py-4 px-6"
+                style={{ background: "linear-gradient(to top, oklch(0.10 0.04 240 / 0.9), transparent)" }}
+              >
+                <p className="text-brass font-body font-medium uppercase tracking-widest" style={{ fontSize: "0.65rem", letterSpacing: "0.2em" }}>
+                  Sea Ray 390 Motor Yacht · Prince William Marina
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bio content */}
+          <div className="reveal order-1 lg:order-2">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-10 bg-brass" />
+              <span
+                className="text-brass font-body font-medium uppercase tracking-widest"
+                style={{ fontSize: "0.7rem", letterSpacing: "0.2em" }}
+              >
+                Your Captain
+              </span>
+            </div>
+            <h2
+              className="font-display font-bold text-white mb-2"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            >
+              Idris Grant
+            </h2>
+            <p className="text-brass font-body mb-6" style={{ fontSize: "0.875rem", letterSpacing: "0.08em" }}>
+              USCG-Licensed Captain · Occoquan River Specialist
+            </p>
+            <p className="text-white/70 font-body leading-relaxed mb-5" style={{ fontSize: "0.9375rem" }}>
+              Captain Idris Grant brings years of experience navigating the Occoquan River and
+              Potomac waterways aboard the <em>Luna Sea</em> — a 41'9" Sea Ray 390 Motor Yacht
+              based at Prince William Marina in Woodbridge, Virginia. Every voyage is personally
+              captain-hosted, ensuring a safe, relaxed, and memorable experience on the water.
+            </p>
+            <p className="text-white/70 font-body leading-relaxed mb-8" style={{ fontSize: "0.9375rem" }}>
+              Whether you're hosting a corporate retreat, a family celebration, a romantic sunset
+              cruise, or an overnight stay aboard, Captain Grant tailors every charter to your
+              group's pace — from anchoring at a quiet cove to cruising past the historic
+              Occoquan waterfront.
+            </p>
+            {/* Credential badges */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                "USCG Licensed",
+                "CPR / First Aid Certified",
+                "Occoquan River Expert",
+                "8 Guests Max",
+              ].map((badge) => (
+                <span
+                  key={badge}
+                  className="font-body uppercase tracking-widest"
+                  style={{
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.15em",
+                    padding: "0.4rem 0.9rem",
+                    border: "1px solid oklch(0.72 0.12 75 / 0.4)",
+                    color: "oklch(0.72 0.12 75)",
+                  }}
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -1825,6 +1931,7 @@ export default function Home() {
       <VesselSection />
       <CharterPackages />
       <GallerySection />
+      <CaptainBioSection />
       <BusinessVenueSection />
       <MarinaSection />
       <InquiryForm />

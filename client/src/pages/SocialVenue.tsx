@@ -121,7 +121,14 @@ function Navigation() {
             className="text-white/60 hover:text-white transition-colors font-body"
             style={{ fontSize: "0.85rem" }}
           >
-            ← Business Venue
+            ← Home
+          </a>
+          <a
+            href="/stay-aboard"
+            className="nav-link hover:text-white transition-colors"
+            style={{ textDecoration: "none", color: "oklch(0.72 0.12 75)" }}
+          >
+            Stay Aboard
           </a>
           <button
             onClick={() => scrollTo("inquiry")}
@@ -163,7 +170,8 @@ function Navigation() {
                 {item.label}
               </button>
             ))}
-            <a href="/" className="text-white/50 font-body text-sm py-1">← Back to Business Venue</a>
+            <a href="/" className="text-white/50 font-body text-sm py-1">← Home</a>
+            <a href="/stay-aboard" className="text-left font-body font-medium py-1" style={{ color: "oklch(0.72 0.12 75)" }}>Stay Aboard</a>
             <button onClick={() => scrollTo("inquiry")} className="btn-brass mt-2 self-start">
               Book Now
             </button>
@@ -1003,8 +1011,8 @@ function InquiryForm() {
             </div>
 
             <div className="photo-card aspect-video">
-              <img src={IMAGES.pwmAerial} alt="Prince William Marina aerial" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-navy/30" />
+              <img src="/manus-storage/IMG_0884_0eb5630e.JPG" alt="Sea Ray 390 Motor Yacht at Prince William Marina" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-navy/20" />
             </div>
           </div>
 
