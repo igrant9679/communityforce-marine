@@ -1275,6 +1275,69 @@ function Footer() {
 }
 
 // ─── Main Social Venue Component ───────────────────────────────────────────────
+// ─── Stay Aboard Banner ─────────────────────────────────────────────────────
+function StayAboardBanner() {
+  const NIGHT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero-btKRnPjSYtgRTv3qF9BEEG.webp";
+  const STATEROOM = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
+
+  return (
+    <section className="reveal relative overflow-hidden" style={{ background: "oklch(0.10 0.03 240)" }}>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${NIGHT_IMG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center 35%",
+        }}
+      />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, oklch(0.08 0.04 240 / 0.95) 50%, oklch(0.08 0.04 240 / 0.55) 100%)" }} />
+
+      <div className="container relative py-20">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div
+            className="hidden lg:block flex-shrink-0 rounded-sm overflow-hidden"
+            style={{ width: "220px", height: "280px", boxShadow: "0 16px 48px oklch(0 0 0 / 0.5)" }}
+          >
+            <img src={STATEROOM} alt="Master stateroom" className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1">
+            <p className="font-body uppercase tracking-[0.2em] mb-3" style={{ fontSize: "0.7rem", color: "oklch(0.72 0.12 75)" }}>
+              Also Available
+            </p>
+            <h2 className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", lineHeight: 1.15 }}>
+              Stay Aboard the Luna Sea
+            </h2>
+            <p className="text-white/65 font-body leading-relaxed mb-6" style={{ fontSize: "0.95rem", maxWidth: "44ch" }}>
+              The party doesn’t have to end at the dock. Book the Luna Sea as your private
+              floating retreat — overnight stays starting at just <strong className="text-white">$150/night</strong> at Prince William Marina.
+            </p>
+            <div className="flex flex-wrap items-center gap-6 mb-8 text-white/55 font-body" style={{ fontSize: "0.8rem" }}>
+              <span>🌙 1–7 night stays</span>
+              <span>🛏 Queen stateroom</span>
+              <span>🍽 Full galley</span>
+              <span>🌊 Swim platform</span>
+            </div>
+            <a
+              href="/stay-aboard"
+              className="btn-brass inline-block"
+              style={{ padding: "0.8rem 2rem", fontSize: "0.82rem", textDecoration: "none" }}
+            >
+              View the Listing →
+            </a>
+          </div>
+          <div
+            className="hidden xl:flex flex-col items-center justify-center flex-shrink-0 rounded-sm"
+            style={{ width: "160px", height: "160px", border: "1px solid oklch(0.72 0.12 75 / 0.35)", background: "oklch(0.72 0.12 75 / 0.08)" }}
+          >
+            <span className="font-display font-bold text-white" style={{ fontSize: "2.2rem" }}>$150</span>
+            <span className="text-white/50 font-body text-center" style={{ fontSize: "0.75rem", lineHeight: 1.4 }}>per night<br />1-night min</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SocialVenue() {
   useScrollReveal();
 
@@ -1288,6 +1351,7 @@ export default function SocialVenue() {
       <ExperienceSection />
       <VesselFeaturesSection />
       <FAQSection />
+      <StayAboardBanner />
       <InquiryForm />
       <Footer />
     </div>
