@@ -11,7 +11,7 @@ import { toast } from "sonner";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   // Generated hero images
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/NewHomePageImage_d6cf970d.png",
+  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sea_ray_390_sunset-3BUGK5YABVrFo847t92iYs.webp",
   heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
   corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
   marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
