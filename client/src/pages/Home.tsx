@@ -1215,7 +1215,7 @@ function InquiryForm() {
       `How They Heard About Us: ${form.hearAbout || "Not specified"}\n\n` +
       `Additional Message:\n${form.message || "None"}`
     );
-    window.location.href = `mailto:idris.grant@lunaseamarine.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:idris.grant@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
     toast.success("Opening your email client to send the inquiry!");
   };
@@ -1248,6 +1248,12 @@ function InquiryForm() {
 
             <div className="flex flex-col gap-6">
               {[
+                {
+                  icon: "📞",
+                  label: "Phone / Text",
+                  value: "703-957-8309",
+                  href: "tel:7039578309",
+                },
                 {
                   icon: "✉️",
                   label: "Email",
@@ -1614,6 +1620,16 @@ function Footer() {
               Contact
             </h4>
             <div className="flex flex-col gap-3">
+              <div>
+                <div className="text-white/40 font-body text-xs uppercase tracking-wider mb-1">Phone / Text</div>
+                <a
+                  href="tel:7039578309"
+                  className="text-white/75 hover:text-brass transition-colors font-body"
+                  style={{ fontSize: "0.875rem" }}
+                >
+                  703-957-8309
+                </a>
+              </div>
               <div>
                 <div className="text-white/40 font-body text-xs uppercase tracking-wider mb-1">Email</div>
                 <a
