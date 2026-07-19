@@ -904,6 +904,7 @@ function InquiryForm() {
     phone: "",
     occasion: "",
     eventDate: "",
+    preferredTime: "",
     guestCount: "",
     package: "",
     message: "",
@@ -933,6 +934,7 @@ function InquiryForm() {
       `Phone: ${form.phone || "Not provided"}\n` +
       `Occasion: ${form.occasion}\n` +
       `Preferred Date: ${form.eventDate || "Flexible"}\n` +
+      `Preferred Time: ${form.preferredTime || "Flexible"}\n` +
       `Number of Guests: ${form.guestCount || "Not specified"}\n` +
       `Package Interest: ${form.package || "Not specified"}\n` +
       `How They Heard About Us: ${form.hearAbout || "Not specified"}\n\n` +
@@ -1010,20 +1012,42 @@ function InquiryForm() {
           <div className="lg:col-span-3 reveal">
             {submitted ? (
               <div
-                className="h-full flex flex-col items-center justify-center text-center p-12"
+                className="h-full flex flex-col items-center justify-center text-center p-10"
                 style={{ background: "oklch(0.22 0.04 240)", border: "1px solid oklch(0.72 0.12 75 / 0.3)" }}
               >
-                <div className="text-5xl mb-6">⚓</div>
-                <h3 className="font-display font-bold text-white text-2xl mb-4">Booking Request Received!</h3>
-                <p className="text-white/65 font-body leading-relaxed max-w-sm">
-                  Thank you, {form.name}. We've received your request and will
-                  respond within 24 hours to confirm availability and discuss
-                  your charter.
+                <div
+                  className="flex items-center justify-center mb-6 rounded-full"
+                  style={{ width: 72, height: 72, background: "oklch(0.72 0.12 75 / 0.15)", border: "2px solid oklch(0.72 0.12 75 / 0.5)" }}
+                >
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M6 16l7 7 13-13" stroke="oklch(0.72 0.12 75)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h3 className="font-display font-bold text-white text-2xl mb-2">Booking Request Sent!</h3>
+                <p className="text-white/55 font-body mb-8" style={{ fontSize: "0.875rem" }}>
+                  We'll respond within 24 hours.
                 </p>
-                <div className="gold-rule mt-8 w-32" />
-                <p className="text-brass font-body mt-4" style={{ fontSize: "0.875rem" }}>
-                  Fair winds and following seas.
-                </p>
+                <div className="w-full text-left rounded-sm p-5 mb-6" style={{ background: "oklch(0.16 0.04 240)", border: "1px solid oklch(0.72 0.12 75 / 0.2)" }}>
+                  <div className="text-brass font-body font-medium uppercase tracking-widest mb-4" style={{ fontSize: "0.65rem", letterSpacing: "0.18em" }}>Your Booking Summary</div>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      { label: "Name", value: form.name },
+                      { label: "Email", value: form.email },
+                      { label: "Occasion", value: form.occasion || "—" },
+                      { label: "Date", value: form.eventDate || "Flexible" },
+                      { label: "Time", value: form.preferredTime || "Flexible" },
+                      { label: "Guests", value: form.guestCount || "—" },
+                      { label: "Package", value: form.package || "—" },
+                    ].map(({ label, value }) => (
+                      <div key={label} className="flex justify-between gap-4">
+                        <span className="text-white/40 font-body" style={{ fontSize: "0.8rem", minWidth: 80 }}>{label}</span>
+                        <span className="text-white/85 font-body text-right" style={{ fontSize: "0.8rem" }}>{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="gold-rule w-full mb-4" />
+                <p className="text-brass font-body" style={{ fontSize: "0.8rem" }}>Fair winds and following seas. ⚓</p>
               </div>
             ) : (
               <form
@@ -1081,7 +1105,18 @@ function InquiryForm() {
                   </div>
                   <div>
                     <label className="block text-white/60 font-body text-xs uppercase tracking-wider mb-2">Preferred Date</label>
-                    <input name="eventDate" type="date" value={form.eventDate} onChange={handleChange} className="form-input" style={{ background: "oklch(0.16 0.04 240)", color: "white", borderColor: "oklch(0.72 0.12 75 / 0.25)", colorScheme: "dark" }} />
+                    <input name="eventDate" type="date" value={form.eventDate} onChange={handleChange} className="form-input" style={{ background: "oklch(0.16 0.04 240)", color: form.eventDate ? "white" : "oklch(0.65 0.02 240)", borderColor: "oklch(0.72 0.12 75 / 0.25)", colorScheme: "dark" }} />
+                  </div>
+                  <div>
+                    <label className="block text-white/60 font-body text-xs uppercase tracking-wider mb-2">Preferred Start Time</label>
+                    <select name="preferredTime" value={form.preferredTime} onChange={handleChange} className="form-input" style={{ background: "oklch(0.16 0.04 240)", color: form.preferredTime ? "white" : "oklch(0.65 0.02 240)", borderColor: "oklch(0.72 0.12 75 / 0.25)" }}>
+                      <option value="">Flexible / TBD</option>
+                      <option value="Morning (8am–11am)">Morning (8am–11am)</option>
+                      <option value="Midday (11am–2pm)">Midday (11am–2pm)</option>
+                      <option value="Afternoon (2pm–5pm)">Afternoon (2pm–5pm)</option>
+                      <option value="Sunset (5pm–8pm)">Sunset (5pm–8pm)</option>
+                      <option value="Evening (after 7pm)">Evening (after 7pm)</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-white/60 font-body text-xs uppercase tracking-wider mb-2">Number of Guests</label>
