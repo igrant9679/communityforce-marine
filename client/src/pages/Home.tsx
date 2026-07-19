@@ -11,7 +11,7 @@ import { toast } from "sonner";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   // Generated hero images
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sea_ray_390_sunset-3BUGK5YABVrFo847t92iYs.webp",
+  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sea_ray_390_v2-LxgGEaJza4PFVkpj8Phpxi.webp",
   heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
   corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
   marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
@@ -33,6 +33,10 @@ const IMAGES = {
   bizCockpit2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit2_d9eeabea.png",
   bizCockpit3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit3_72a74766.png",
   bizCockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit4_584f7faa.png",
+  // Real owner boat photos (high-accuracy Sea Ray 390)
+  boatReal1: "/manus-storage/IMG_0884_0eb5630e.JPG",
+  boatReal2: "/manus-storage/IMG_0787_3b05bbdf.JPG",
+  boatReal3: "/manus-storage/b3_6de55c03.jpg",
   // Actual boat photos
   boat1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8289_bc046952.JPEG",
   boat2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8290_01cfc281.JPEG",
@@ -757,6 +761,9 @@ function GallerySection() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const allGalleryImages = [
+    { src: IMAGES.boatReal1, alt: "Sea Ray 390 Motor Yacht at Prince William Marina", cat: "exterior" },
+    { src: IMAGES.boatReal2, alt: "Sea Ray 390 docked on the Occoquan River", cat: "exterior" },
+    { src: IMAGES.boatReal3, alt: "Sea Ray 390 swim platform — family day on the water", cat: "exterior" },
     { src: IMAGES.boat1, alt: "Vessel exterior at marina", cat: "exterior" },
     { src: IMAGES.boat7, alt: "Yacht on the water", cat: "exterior" },
     { src: IMAGES.boat8, alt: "Vessel at dock", cat: "exterior" },
