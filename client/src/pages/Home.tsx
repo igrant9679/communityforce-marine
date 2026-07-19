@@ -347,7 +347,7 @@ function HeroSection() {
           >
             Charter a 41'9" Sea Ray 390 Motor Yacht on the Occoquan River for
             corporate team outings, government client meetings, private
-            celebrations, and sunset cruises. Every voyage is captain-hosted.
+            celebrations, and sunset cruises. Every voyage is personally hosted.
           </p>
 
           {/* CTAs */}
@@ -658,7 +658,7 @@ function CharterPackages() {
             className="mt-4 text-navy/65 font-body max-w-xl leading-relaxed"
             style={{ fontSize: "1rem" }}
           >
-            Every charter is captain-hosted by Idris Grant. The vessel never departs
+            Every charter is personally hosted by Idris Grant. The vessel never departs
             without a professional host aboard — ensuring safety, quality, and an
             exceptional experience for every guest.
           </p>
@@ -1037,13 +1037,13 @@ function CaptainBioSection() {
               Idris Grant
             </h2>
             <p className="text-brass font-body mb-6" style={{ fontSize: "0.875rem", letterSpacing: "0.08em" }}>
-              USCG-Licensed Captain · Occoquan River Specialist
+              Occoquan River Host · Prince William Marina
             </p>
             <p className="text-white/70 font-body leading-relaxed mb-5" style={{ fontSize: "0.9375rem" }}>
-              Captain Idris Grant brings years of experience navigating the Occoquan River and
+              Idris Grant brings years of experience navigating the Occoquan River and
               Potomac waterways aboard the <em>Luna Sea</em> — a 41'9" Sea Ray 390 Motor Yacht
               based at Prince William Marina in Woodbridge, Virginia. Every voyage is personally
-              captain-hosted, ensuring a safe, relaxed, and memorable experience on the water.
+              personally hosted, ensuring a safe, relaxed, and memorable experience on the water.
             </p>
             <p className="text-white/70 font-body leading-relaxed mb-8" style={{ fontSize: "0.9375rem" }}>
               Whether you're hosting a corporate retreat, a family celebration, a romantic sunset
@@ -1054,7 +1054,7 @@ function CaptainBioSection() {
             {/* Credential badges */}
             <div className="flex flex-wrap gap-3">
               {[
-                "USCG Licensed",
+                "Experienced River Host",
                 "CPR / First Aid Certified",
                 "Occoquan River Expert",
                 "8 Guests Max",

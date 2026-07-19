@@ -12,15 +12,15 @@ import { Link } from "wouter";
 const IMAGES = {
   logo: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp",
   hero: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero-btKRnPjSYtgRTv3qF9BEEG.webp",
-  salonNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_salon_night-esXMgU6STDHcH4MkysEyXk.webp",
-  stateroomNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_stateroom_night-mnNjvDbdNxqyaZNK3e63iB.webp",
+  salonNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
+  stateroomNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
   boatDay: "/manus-storage/IMG_0884_0eb5630e.JPG",
   boatRiver: "/manus-storage/IMG_0787_3b05bbdf.JPG",
   swimPlatform: "/manus-storage/b3_6de55c03.jpg",
-  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8276_22c05a58.jpg",
-  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8293_f0a2b0b1.jpg",
-  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8272_3c7fce3a.jpg",
-  bathroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8270_926e37c0.jpg",
+  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
+  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
+  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_cockpit_evening-FwQR9EUwHJUBRb6aPvFKEG.webp",
+  bathroom: "/manus-storage/b3_6de55c03.jpg",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
@@ -171,7 +171,7 @@ function HeroSection() {
             { value: "41'9\"", label: "Motor Yacht" },
             { value: "2 Cabins", label: "Sleeping Spaces" },
             { value: "4 Guests", label: "Max Overnight" },
-            { value: "From $350", label: "Per Night" },
+            { value: "From $150", label: "Per Night" },
           ].map((stat) => (
             <div
               key={stat.label}
@@ -308,7 +308,7 @@ function ListingSection() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const NIGHTLY_RATE = 350;
+  const NIGHTLY_RATE = 150;
   const CLEANING_FEE = 75;
   const SERVICE_FEE = 45;
 
@@ -403,9 +403,9 @@ function ListingSection() {
                 </div>
                 <div className="flex flex-col items-end">
                   <span className="font-display font-bold text-navy" style={{ fontSize: "1.5rem" }}>
-                    $350 <span className="font-body font-normal text-navy/50" style={{ fontSize: "0.875rem" }}>/ night</span>
+                    $150 <span className="font-body font-normal text-navy/50" style={{ fontSize: "0.875rem" }}>/ night</span>
                   </span>
-                  <span className="text-brass font-body" style={{ fontSize: "0.75rem" }}>From $350 · 1-night minimum</span>
+                  <span className="text-brass font-body" style={{ fontSize: "0.75rem" }}>From $150 · 1-night minimum</span>
                 </div>
               </div>
 
@@ -415,7 +415,7 @@ function ListingSection() {
                   { label: "4 guests max", icon: "👥" },
                   { label: "2 sleeping spaces", icon: "🛏️" },
                   { label: "1 full head", icon: "🚿" },
-                  { label: "Hosted by Capt. Idris", icon: "⚓" },
+                  { label: "Hosted by Idris Grant", icon: "⚓" },
                 ].map((f) => (
                   <div key={f.label} className="flex items-center gap-2">
                     <span style={{ fontSize: "1rem" }}>{f.icon}</span>
@@ -554,7 +554,7 @@ function ListingSection() {
                   {/* Pricing header */}
                   <div className="p-5 border-b" style={{ borderColor: "oklch(0.72 0.12 75 / 0.15)" }}>
                     <div className="flex items-baseline gap-1">
-                      <span className="font-display font-bold text-navy" style={{ fontSize: "1.5rem" }}>$350</span>
+                      <span className="font-display font-bold text-navy" style={{ fontSize: "1.5rem" }}>$150</span>
                       <span className="text-navy/50 font-body" style={{ fontSize: "0.875rem" }}>/ night</span>
                     </div>
                   </div>
@@ -708,7 +708,7 @@ function AddOnsSection() {
     {
       icon: "⚓",
       title: "Day Cruise with Captain Idris",
-      desc: "Add a captain-hosted day cruise on the Occoquan River or Potomac. Explore coves, anchor for swimming, or cruise to a waterfront restaurant.",
+      desc: "Add a personally hosted day cruise on the Occoquan River or Potomac. Explore coves, anchor for swimming, or cruise to a waterfront restaurant.",
       price: "From $400 / day",
     },
     {
@@ -856,7 +856,7 @@ function Footer() {
             © {new Date().getFullYear()} Luna Sea Marine. All rights reserved.
           </p>
           <p className="text-white/25 font-body" style={{ fontSize: "0.75rem" }}>
-            USCG Licensed · Prince William Marina · Woodbridge, VA
+            Experienced River Host · Prince William Marina · Woodbridge, VA
           </p>
         </div>
       </div>
