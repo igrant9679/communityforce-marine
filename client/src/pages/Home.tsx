@@ -11,7 +11,7 @@ import { toast } from "sonner";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   // Generated hero images
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_390_v3-MMZ3L8tsjfuAckU3akzeow.webp",
+  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_390_v4-Scfj7tGRsNWcLjzEwi8VgG.webp",
   heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
   corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
   marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
@@ -1921,7 +1921,7 @@ function Footer() {
 
 // ─── Stay Aboard Teaser ─────────────────────────────────────────────────────
 function StayAboardTeaser() {
-  const HERO_NIGHT = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v2-S2a6nBrZVatSaboo4fJs89.webp";
+  const HERO_NIGHT = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v3-CXBWDCh5dAnQz6JwgnfMUu.webp";
   const SALON = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp";
   const STATEROOM = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
 
