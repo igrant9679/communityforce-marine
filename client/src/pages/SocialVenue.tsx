@@ -1277,7 +1277,7 @@ function Footer() {
 // ─── Main Social Venue Component ───────────────────────────────────────────────
 // ─── Stay Aboard Banner ─────────────────────────────────────────────────────
 function StayAboardBanner() {
-  const NIGHT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v4-Mi5BSeM53h79qFSbDnNe3c.webp";
+  const NIGHT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp";
   const STATEROOM = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
 
   return (
