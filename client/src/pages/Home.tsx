@@ -7,6 +7,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { MapView } from "@/components/Map";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
@@ -1363,6 +1364,27 @@ function MarinaSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Interactive Map */}
+        <div className="mt-12 reveal">
+          <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: 380 }}>
+            <MapView
+              className="w-full h-full"
+              initialCenter={{ lat: 38.6818, lng: -77.2598 }}
+              initialZoom={14}
+              onMapReady={(map: google.maps.Map) => {
+                new google.maps.marker.AdvancedMarkerElement({
+                  map,
+                  position: { lat: 38.6818, lng: -77.2598 },
+                  title: "Prince William Marina — Luna Sea Marine",
+                });
+              }}
+            />
+          </div>
+          <p className="text-center text-navy/50 font-body mt-3" style={{ fontSize: "0.8rem" }}>
+            Prince William Marina · 12849 Gordon Blvd, Woodbridge, VA 22191
+          </p>
         </div>
       </div>
     </section>

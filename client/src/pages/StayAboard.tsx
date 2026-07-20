@@ -7,6 +7,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Link } from "wouter";
+import { MapView } from "@/components/Map";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
@@ -823,9 +824,19 @@ function LocationSection() {
             </a>
           </div>
           <div className="reveal">
-            <div className="photo-card" style={{ height: 400 }}>
-              <img src={IMAGES.boatRiver} alt="Sea Ray 390 on the Occoquan River" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-navy/10" />
+            <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: 400 }}>
+              <MapView
+                className="w-full h-full"
+                initialCenter={{ lat: 38.6818, lng: -77.2598 }}
+                initialZoom={14}
+                onMapReady={(map: google.maps.Map) => {
+                  new google.maps.marker.AdvancedMarkerElement({
+                    map,
+                    position: { lat: 38.6818, lng: -77.2598 },
+                    title: "Prince William Marina — Luna Sea Marine",
+                  });
+                }}
+              />
             </div>
           </div>
         </div>
