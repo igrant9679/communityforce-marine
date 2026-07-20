@@ -11,7 +11,7 @@ import { Link } from "wouter";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   logo: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp",
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero-btKRnPjSYtgRTv3qF9BEEG.webp",
+  hero: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v2-S2a6nBrZVatSaboo4fJs89.webp",
   salonNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
   stateroomNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
   boatDay: "/manus-storage/IMG_0884_0eb5630e.JPG",
@@ -19,7 +19,7 @@ const IMAGES = {
   swimPlatform: "/manus-storage/b3_6de55c03.jpg",
   salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
   stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
-  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_cockpit_evening-FwQR9EUwHJUBRb6aPvFKEG.webp",
+  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpit_evening_v2-ia5T9iUtTEyZbjzwNrhkQK.webp",
   bathroom: "/manus-storage/b3_6de55c03.jpg",
 };
 
@@ -673,8 +673,16 @@ function ListingSection() {
                       {submitting ? "SENDING REQUEST..." : "REQUEST TO BOOK"}
                     </button>
                     <p className="text-navy/40 font-body text-center" style={{ fontSize: "0.75rem" }}>
-                      You won't be charged yet — Captain Idris will confirm availability within 24 hours.
+                      You won’t be charged yet — Idris will confirm availability within 24 hours.
                     </p>
+                    <div
+                      className="mt-3 p-3 rounded-sm font-body"
+                      style={{ background: "oklch(0.72 0.12 75 / 0.07)", border: "1px solid oklch(0.72 0.12 75 / 0.2)", fontSize: "0.72rem", color: "oklch(0.35 0.04 240)" }}
+                    >
+                      <strong style={{ color: "oklch(0.45 0.06 240)" }}>Seasonal pricing note:</strong> Rates shown are base estimates.
+                      Peak season (May–October) and holiday weekends may carry a premium.
+                      Final pricing is confirmed by the host before your stay is locked in.
+                    </div>
                   </div>
                 </form>
               )}
@@ -826,6 +834,126 @@ function LocationSection() {
   );
 }
 
+// ─── FAQ Section ─────────────────────────────────────────────────────────────────
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "Is the boat docked the entire time or does it go out on the water?",
+      a: "For overnight stays, the Luna Sea remains docked at Prince William Marina. You’re welcome to enjoy the swim platform, cockpit, and all interior spaces. If you’d like a day cruise add-on, we can arrange that separately."
+    },
+    {
+      q: "How many guests can stay overnight?",
+      a: "The boat comfortably sleeps 2–4 guests. The master stateroom has a queen berth, and the salon converts to an additional sleeping area. For safety and comfort, we cap overnight stays at 4 guests."
+    },
+    {
+      q: "What’s included in the nightly rate?",
+      a: "Your (/night rate includes the full boat (salon, stateroom, galley, cockpit, swim platform), linens and towels, shore power (A/C and heat), Wi-Fi, and access to marina restrooms and showers. A one-time cleaning fee and service fee are added at booking."
+    },
+    {
+      q: "Can I cook on board?",
+      a: "Yes! The galley has a two-burner stove, microwave, refrigerator, and basic cookware. You’re welcome to bring your own groceries. We also offer a champagne welcome package and can recommend local restaurants that deliver to the marina."
+    },
+    {
+      q: "What’s the check-in and check-out time?",
+      a: "Check-in is at 4:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be available depending on the schedule — just ask when you book."
+    },
+    {
+      q: "Is there parking at the marina?",
+      a: "Yes, Prince William Marina has free parking directly adjacent to the dock. You’ll receive directions and a slip number after your booking is confirmed."
+    },
+    {
+      q: "What happens if the weather is bad?",
+      a: "Since the boat stays docked, weather rarely affects overnight stays. The enclosed salon and stateroom are climate-controlled. In the event of a severe weather advisory, we’ll reach out to discuss rescheduling options at no extra charge."
+    },
+    {
+      q: "Are pets allowed?",
+      a: "Small, well-behaved dogs are welcome with prior approval. Please mention your pet when booking so we can prepare accordingly. A  pet fee applies."
+    },
+    {
+      q: "How do I get on the boat when I arrive?",
+      a: "Idris will meet you at the marina for a brief orientation — showing you the systems, A/C, galley, and swim platform. After that, the boat is yours for the duration of your stay."
+    },
+    {
+      q: "What’s the cancellation policy?",
+      a: "Free cancellation up to 48 hours before check-in for a full refund. Cancellations within 48 hours receive a 50% refund. No-shows are non-refundable."
+    },
+  ];
+
+  return (
+    <section className="reveal bg-ivory py-20">
+      <div className="container" style={{ maxWidth: "800px" }}>
+        <div className="text-center mb-12">
+          <p className="font-body uppercase tracking-[0.2em] mb-3" style={{ fontSize: "0.7rem", color: "oklch(0.72 0.12 75)" }}>
+            Questions & Answers
+          </p>
+          <h2 className="font-display font-bold text-navy" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}>
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div className="flex flex-col gap-0">
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className="border-b transition-colors"
+              style={{ borderColor: "oklch(0.72 0.12 75 / 0.2)" }}
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between py-5 text-left group"
+              >
+                <span className="font-body font-medium text-navy pr-4" style={{ fontSize: "0.95rem" }}>
+                  {faq.q}
+                </span>
+                <span
+                  className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-all"
+                  style={{
+                    background: openIndex === i ? "oklch(0.72 0.12 75)" : "oklch(0.72 0.12 75 / 0.15)",
+                    color: openIndex === i ? "white" : "oklch(0.45 0.08 75)",
+                    transform: openIndex === i ? "rotate(45deg)" : "rotate(0deg)",
+                  }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
+                    <line x1="6" y1="1" x2="6" y2="11" />
+                    <line x1="1" y1="6" x2="11" y2="6" />
+                  </svg>
+                </span>
+              </button>
+              <div
+                className="overflow-hidden transition-all"
+                style={{
+                  maxHeight: openIndex === i ? "300px" : "0px",
+                  opacity: openIndex === i ? 1 : 0,
+                  transition: "max-height 0.35s ease, opacity 0.25s ease",
+                }}
+              >
+                <p className="font-body text-navy/70 pb-5 leading-relaxed" style={{ fontSize: "0.875rem" }}>
+                  {faq.a}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-navy/50 font-body mb-3" style={{ fontSize: "0.85rem" }}>
+            Still have questions?
+          </p>
+          <a
+            href="tel:7039578309"
+            className="inline-block font-body font-medium transition-colors"
+            style={{ fontSize: "0.9rem", color: "oklch(0.72 0.12 75)", textDecoration: "none" }}
+          >
+            Call or text Idris: 703-957-8309
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Footer ───────────────────────────────────────────────────────────────────
 function Footer() {
   return (
@@ -875,6 +1003,7 @@ export default function StayAboard() {
       <ListingSection />
       <AddOnsSection />
       <LocationSection />
+      <FAQSection />
       <Footer />
     </div>
   );
