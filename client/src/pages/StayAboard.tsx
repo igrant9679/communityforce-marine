@@ -11,17 +11,17 @@ import { MapView } from "@/components/Map";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
-  logo: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp",
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp",
-  salonNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
-  stateroomNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
-  boatDay: "/manus-storage/IMG_0884_0eb5630e.JPG",
-  boatRiver: "/manus-storage/IMG_0787_3b05bbdf.JPG",
-  swimPlatform: "/manus-storage/b3_6de55c03.jpg",
-  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
-  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
-  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpit_evening_v2-ia5T9iUtTEyZbjzwNrhkQK.webp",
-  bathroom: "/manus-storage/b3_6de55c03.jpg",
+  logo: "/images/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp",
+  hero: "/images/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp",
+  salonNight: "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
+  stateroomNight: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
+  boatDay: "/images/IMG_0884_0eb5630e.JPG",
+  boatRiver: "/images/IMG_0787_3b05bbdf.JPG",
+  swimPlatform: "/images/b3_6de55c03.jpg",
+  salon: "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
+  stateroom: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
+  galley: "/images/cockpit_evening_v2-ia5T9iUtTEyZbjzwNrhkQK.webp",
+  bathroom: "/images/b3_6de55c03.jpg",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
