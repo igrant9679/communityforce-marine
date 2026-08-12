@@ -7,87 +7,90 @@
 
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { MapView } from "@/components/Map";
+import { MarinaMap } from "@/components/MarinaMap";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   // Generated hero images
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_390_v7-nNzjbRbccmZTdwhqs4ZoR5.webp",
-  heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
-  corporateMeeting: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
-  marinaAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
+  heroBg: "/images/hero_390_v7-nNzjbRbccmZTdwhqs4ZoR5.webp",
+  heroSunset: "/images/hero_sunset-3CfVwAu7r47S25P8yyUrge.webp",
+  corporateMeeting: "/images/biz_4prof_cockpit_carpet_e4ecb865.png",
+  marinaAerial: "/images/marina_aerial-7jo7oWLJucnQE22C7zJYeT.webp",
   // PWMarina facility photos
-  pwmDock: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_dock_view_b7910622.jpg",
-  pwmDeck: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_deck_view_248e4990.jpg",
-  pwmAerialFall: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_fall_c2bb8f09.jpg",
-  pwmAerialSummer: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_summer_72822424.jpg",
+  pwmDock: "/images/pwm_dock_view_b7910622.jpg",
+  pwmDeck: "/images/pwm_deck_view_248e4990.jpg",
+  pwmAerialFall: "/images/pwm_aerial_fall_c2bb8f09.jpg",
+  pwmAerialSummer: "/images/pwm_aerial_summer_72822424.jpg",
   // Business meeting photos (updated Mar 2026 — real yacht meeting scenes)
-  meeting1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_3prof_salon_6b61f1b9.png",
-  meeting2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_marina_41552692.png",
-  meeting4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_group_salon_working_4c0edee9.png",
-  meeting5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_group_salon_45d05ab0.png",
+  meeting1: "/images/biz_3prof_salon_6b61f1b9.png",
+  meeting2: "/images/biz_4prof_cockpit_marina_41552692.png",
+  meeting4: "/images/biz_group_salon_working_4c0edee9.png",
+  meeting5: "/images/biz_group_salon_45d05ab0.png",
   // Additional business meeting photos
-  biz3ProfRiver: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_3prof_river_b1932ffa.png",
-  biz3ProfSalon2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_3prof_salon2_6ce3facd.png",
-  biz4ProfCarpet: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_4prof_cockpit_carpet_e4ecb865.png",
-  bizCockpit1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit1_5115a092.png",
-  bizCockpit2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit2_d9eeabea.png",
-  bizCockpit3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit3_72a74766.png",
-  bizCockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/biz_cockpit4_584f7faa.png",
+  biz3ProfRiver: "/images/biz_3prof_river_b1932ffa.png",
+  biz3ProfSalon2: "/images/biz_3prof_salon2_6ce3facd.png",
+  biz4ProfCarpet: "/images/biz_4prof_cockpit_carpet_e4ecb865.png",
+  bizCockpit1: "/images/biz_cockpit1_5115a092.png",
+  bizCockpit2: "/images/biz_cockpit2_d9eeabea.png",
+  bizCockpit3: "/images/biz_cockpit3_72a74766.png",
+  bizCockpit4: "/images/biz_cockpit4_584f7faa.png",
   // Real owner boat photos (high-accuracy Sea Ray 390)
-  boatReal1: "/manus-storage/IMG_0884_0eb5630e.JPG",
-  boatReal2: "/manus-storage/IMG_0787_3b05bbdf.JPG",
-  boatReal3: "/manus-storage/b3_6de55c03.jpg",
+  // The three filenames previously here were dead CDN keys — the bucket answers
+  // 403 for objects that never existed, so they were never private, just wrong.
+  // Repointed at photographs already in the manifest: Luna Sea at her Prince
+  // William Marina slip, the 390 on the Occoquan, and the marina at golden hour.
+  boatReal1: "/images/lunasea2_landscape_d63608ce.png",
+  boatReal2: "/images/IMG_0787_03fa7333.JPG",
+  boatReal3: "/images/pw_marina2_landscape_f37bf649.png",
   // Actual boat photos
-  boat1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8289_bc046952.JPEG",
-  boat2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8290_01cfc281.JPEG",
-  boat3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8291_1f65c251.JPEG",
-  boat4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8293_4e2b7de0.JPEG",
-  boat5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8294_655f14a2.JPEG",
-  boat6: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8295_c1e86252.JPEG",
-  boat7: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8296_31bf9fcd.JPEG",
-  boat8: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8297_81a5e070.JPEG",
+  boat1: "/images/IMG_8289_bc046952.JPEG",
+  boat2: "/images/IMG_8290_01cfc281.JPEG",
+  boat3: "/images/IMG_8291_1f65c251.JPEG",
+  boat4: "/images/IMG_8293_4e2b7de0.JPEG",
+  boat5: "/images/IMG_8294_655f14a2.JPEG",
+  boat6: "/images/IMG_8295_c1e86252.JPEG",
+  boat7: "/images/IMG_8296_31bf9fcd.JPEG",
+  boat8: "/images/IMG_8297_81a5e070.JPEG",
   // Interior / marina photos
-  interior1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8270_f111aded.JPEG",
-  interior2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8273_7e401905.JPEG",
-  interior3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8276_ef4bea75.JPEG",
-  interior4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8278_67bf308e.JPEG",
-  interior5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8280_118bda8e.JPEG",
-  interior6: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8281_23f89c80.JPEG",
+  interior1: "/images/IMG_8270_f111aded.JPEG",
+  interior2: "/images/IMG_8273_7e401905.JPEG",
+  interior3: "/images/IMG_8276_ef4bea75.JPEG",
+  interior4: "/images/IMG_8278_67bf308e.JPEG",
+  interior5: "/images/IMG_8280_118bda8e.JPEG",
+  interior6: "/images/IMG_8281_23f89c80.JPEG",
   // Marina / resort photos
-  marina1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b1_814d2b40.jpg",
-  marina2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b5_f98c1238.jpg",
-  marina3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b6_e68c25be.jpg",
-  marina4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0884_afd4ca6f.JPG",
-  marina5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_7674_80a14cde.JPG",
-  marina6: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0097_46e54073.JPG",
-  marina7: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0098_0d418f81.JPG",
-  marina8: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_0787_03fa7333.JPG",
+  marina1: "/images/b1_814d2b40.jpg",
+  marina2: "/images/b5_f98c1238.jpg",
+  marina3: "/images/b6_e68c25be.jpg",
+  marina5: "/images/IMG_7674_80a14cde.JPG",
+  marina6: "/images/IMG_0097_46e54073.JPG",
+  marina7: "/images/IMG_0098_0d418f81.JPG",
+  marina8: "/images/IMG_0787_03fa7333.JPG",
   // New high-res marina facility photos (user-provided, Mar 2026)
-  pwPool1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_pool1_square_c48dece8.png",
-  pwBathhousePool: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_bathhouse_pool_portrait_3cde740c.png",
-  epalm3: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/epalm3_portrait_ec73b49c.png",
-  pwPoolPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_pool_portrait_378eaa0e.png",
-  marinaAerialLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina_aerial_landscape_ee467009.png",
-  pwMarina1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_marina1_landscape_9425392b.png",
-  pwMarina2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pw_marina2_landscape_f37bf649.png",
-  epalm4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/epalm4_landscape_042d9aee.png",
-  epalm1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/epalm1_landscape_5616e665.png",
-  lunaSea1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/lunasea1_landscape_baeae85d.png",
-  lunaSea2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/lunasea2_landscape_d63608ce.png",
-  marina3Landscape: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/marina3_landscape_84f04340.png",
+  pwPool1: "/images/pw_pool1_square_c48dece8.png",
+  pwBathhousePool: "/images/pw_bathhouse_pool_portrait_3cde740c.png",
+  epalm3: "/images/epalm3_portrait_ec73b49c.png",
+  pwPoolPortrait: "/images/pw_pool_portrait_378eaa0e.png",
+  marinaAerialLandscape: "/images/marina_aerial_landscape_ee467009.png",
+  pwMarina1: "/images/pw_marina1_landscape_9425392b.png",
+  pwMarina2: "/images/pw_marina2_landscape_f37bf649.png",
+  epalm4: "/images/epalm4_landscape_042d9aee.png",
+  epalm1: "/images/epalm1_landscape_5616e665.png",
+  lunaSea1: "/images/lunasea1_landscape_baeae85d.png",
+  lunaSea2: "/images/lunasea2_landscape_d63608ce.png",
+  marina3Landscape: "/images/marina3_landscape_84f04340.png",
   // New cockpit & interior photos
-  cockpit1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage1_47ab1ea0.jpg",
-  cockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage4_9458350e.jpg",
-  cockpit5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage5_a6837624.jpg",
-  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8293_f0a2b0b1.jpg",
-  galley1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8296_87b61edd.jpg",
-  stateroomDoors: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b6_536f6ef7.jpg",
-  bathroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8270_926e37c0.jpg",
-  fridge: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8273_257a8533.jpg",
-  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8276_22c05a58.jpg",
-  vanity: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8278_e002a5cd.jpg",
-  galley2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8272_3c7fce3a.jpg",
+  cockpit1: "/images/cockpitimage1_47ab1ea0.jpg",
+  cockpit4: "/images/cockpitimage4_9458350e.jpg",
+  cockpit5: "/images/cockpitimage5_a6837624.jpg",
+  stateroom: "/images/IMG_8293_f0a2b0b1.jpg",
+  galley1: "/images/IMG_8296_87b61edd.jpg",
+  stateroomDoors: "/images/b6_536f6ef7.jpg",
+  bathroom: "/images/IMG_8270_926e37c0.jpg",
+  fridge: "/images/IMG_8273_257a8533.jpg",
+  salon: "/images/IMG_8276_22c05a58.jpg",
+  vanity: "/images/IMG_8278_e002a5cd.jpg",
+  galley2: "/images/IMG_8272_3c7fce3a.jpg",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
@@ -145,7 +148,7 @@ function Navigation() {
         >
           <div className="flex items-center gap-2">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+              src="/images/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
               alt="Luna Sea Marine logo"
               style={{ width: "32px", height: "32px", objectFit: "contain" }}
             />
@@ -778,7 +781,7 @@ function GallerySection() {
   const allGalleryImages = [
     { src: IMAGES.boatReal1, alt: "Sea Ray 390 Motor Yacht at Prince William Marina", cat: "exterior" },
     { src: IMAGES.boatReal2, alt: "Sea Ray 390 docked on the Occoquan River", cat: "exterior" },
-    { src: IMAGES.boatReal3, alt: "Sea Ray 390 swim platform — family day on the water", cat: "exterior" },
+    { src: IMAGES.boatReal3, alt: "Prince William Marina waterfront at golden hour", cat: "marina" },
     { src: IMAGES.boat1, alt: "Vessel exterior at marina", cat: "exterior" },
     { src: IMAGES.boat7, alt: "Yacht on the water", cat: "exterior" },
     { src: IMAGES.boat8, alt: "Vessel at dock", cat: "exterior" },
@@ -795,12 +798,11 @@ function GallerySection() {
     { src: IMAGES.galley1, alt: "Galley and companionway", cat: "interior" },
     { src: IMAGES.fridge, alt: "Galley refrigerator", cat: "interior" },
     { src: IMAGES.interior1, alt: "Vessel interior", cat: "interior" },
-    { src: IMAGES.marina1, alt: "Prince William Marina", cat: "marina" },
-    { src: IMAGES.marina2, alt: "Marina resort waterfront", cat: "marina" },
-    { src: IMAGES.marina4, alt: "Occoquan River", cat: "marina" },
+    { src: IMAGES.marina1, alt: "Sea Ray 390 Motor Yacht at her berth", cat: "marina" },
+    { src: IMAGES.marina2, alt: "Luna Sea berthed at Prince William Marina", cat: "marina" },
     { src: IMAGES.pwmAerialSummer, alt: "Marina aerial view", cat: "marina" },
     { src: IMAGES.pwmDock, alt: "Marina dock walkway", cat: "marina" },
-    { src: IMAGES.marina8, alt: "Marina resort facilities", cat: "marina" },
+    { src: IMAGES.marina8, alt: "Sea Ray 390 Motor Yacht on the Occoquan River", cat: "marina" },
   ];
 
   const galleryImages = activeCategory === "all"
@@ -1004,7 +1006,7 @@ function CaptainBioSection() {
             >
               <img
                 src={IMAGES.boatReal1}
-                alt="Captain Idris Grant aboard the Sea Ray 390 Motor Yacht"
+                alt="Luna Sea, a Sea Ray 390 Motor Yacht, at her Prince William Marina slip"
                 className="w-full object-cover"
                 style={{ maxHeight: 480 }}
               />
@@ -1279,13 +1281,13 @@ function MarinaSection() {
     { src: IMAGES.pwMarina2, alt: "Prince William Marina waterfront" },
     { src: IMAGES.marina3Landscape, alt: "Marina facilities landscape" },
     { src: IMAGES.epalm1, alt: "The Electric Palm Restaurant" },
-    { src: IMAGES.epalm4, alt: "Electric Palm outdoor dining" },
-    { src: IMAGES.epalm3, alt: "Electric Palm restaurant interior" },
-    { src: IMAGES.lunaSea1, alt: "Luna Sea Bar & Grill" },
-    { src: IMAGES.lunaSea2, alt: "Luna Sea waterfront dining" },
+    { src: IMAGES.epalm4, alt: "The Electric Palm Restaurant exterior" },
+    { src: IMAGES.epalm3, alt: "The Electric Palm Restaurant from the road" },
+    { src: IMAGES.lunaSea1, alt: "Sea Ray 390 Motor Yacht at her berth" },
+    { src: IMAGES.lunaSea2, alt: "Luna Sea berthed at Prince William Marina" },
     { src: IMAGES.pwPool1, alt: "Prince William Marina pool" },
     { src: IMAGES.pwPoolPortrait, alt: "Marina pool and resort" },
-    { src: IMAGES.pwBathhousePool, alt: "Marina bathhouse and pool" },
+    { src: IMAGES.pwBathhousePool, alt: "Marina bathhouse and lawn" },
   ];
 
   return (
@@ -1369,17 +1371,11 @@ function MarinaSection() {
         {/* Interactive Map */}
         <div className="mt-12 reveal">
           <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: 380 }}>
-            <MapView
+            <MarinaMap
               className="w-full h-full"
-              initialCenter={{ lat: 38.6818, lng: -77.2598 }}
-              initialZoom={14}
-              onMapReady={(map: google.maps.Map) => {
-                new google.maps.marker.AdvancedMarkerElement({
-                  map,
-                  position: { lat: 38.6818, lng: -77.2598 },
-                  title: "Prince William Marina — Luna Sea Marine",
-                });
-              }}
+              lat={38.6818}
+              lng={-77.2598}
+              zoom={14}
             />
           </div>
           <p className="text-center text-navy/50 font-body mt-3" style={{ fontSize: "0.8rem" }}>
@@ -1813,7 +1809,7 @@ function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-3">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+                src="/images/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
                 alt="Luna Sea Marine"
                 style={{ width: "40px", height: "40px", objectFit: "contain" }}
               />
@@ -1943,9 +1939,9 @@ function Footer() {
 
 // ─── Stay Aboard Teaser ─────────────────────────────────────────────────────
 function StayAboardTeaser() {
-  const HERO_NIGHT = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp";
-  const SALON = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp";
-  const STATEROOM = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
+  const HERO_NIGHT = "/images/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp";
+  const SALON = "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp";
+  const STATEROOM = "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
 
   return (
     <section className="reveal relative overflow-hidden" style={{ background: "oklch(0.12 0.03 240)" }}>

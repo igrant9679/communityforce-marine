@@ -7,21 +7,25 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Link } from "wouter";
-import { MapView } from "@/components/Map";
+import { MarinaMap } from "@/components/MarinaMap";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
-  logo: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp",
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp",
-  salonNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
-  stateroomNight: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
-  boatDay: "/manus-storage/IMG_0884_0eb5630e.JPG",
-  boatRiver: "/manus-storage/IMG_0787_3b05bbdf.JPG",
-  swimPlatform: "/manus-storage/b3_6de55c03.jpg",
-  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
-  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
-  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpit_evening_v2-ia5T9iUtTEyZbjzwNrhkQK.webp",
-  bathroom: "/manus-storage/b3_6de55c03.jpg",
+  logo: "/images/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp",
+  hero: "/images/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp",
+  salonNight: "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
+  stateroomNight: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
+  // boatDay/boatRiver previously pointed at dead CDN keys (403 = never existed).
+  // swimPlatform was removed: its only file was dead and nothing rendered it.
+  boatDay: "/images/lunasea2_landscape_d63608ce.png",
+  boatRiver: "/images/IMG_0787_03fa7333.JPG",
+  salon: "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
+  stateroom: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
+  galley: "/images/cockpit_evening_v2-ia5T9iUtTEyZbjzwNrhkQK.webp",
+  // Was b3_6de55c03.jpg — the swim platform photo — under captions reading
+  // "Head with stand-up shower" and "Private Head". This is the head photo that
+  // Home and Social Charters were already using correctly.
+  bathroom: "/images/IMG_8270_926e37c0.jpg",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
@@ -825,17 +829,11 @@ function LocationSection() {
           </div>
           <div className="reveal">
             <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: 400 }}>
-              <MapView
+              <MarinaMap
                 className="w-full h-full"
-                initialCenter={{ lat: 38.6818, lng: -77.2598 }}
-                initialZoom={14}
-                onMapReady={(map: google.maps.Map) => {
-                  new google.maps.marker.AdvancedMarkerElement({
-                    map,
-                    position: { lat: 38.6818, lng: -77.2598 },
-                    title: "Prince William Marina — Luna Sea Marine",
-                  });
-                }}
+                lat={38.6818}
+                lng={-77.2598}
+                zoom={14}
               />
             </div>
           </div>

@@ -10,23 +10,22 @@ import { toast } from "sonner";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/new_homepage_hero_53b95ece.png",
-  heroSunset: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/hero_sunset-3CfVwAu7r47R25P8yyUrge.webp",
-  salon: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8276_22c05a58.jpg",
-  stateroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8293_f0a2b0b1.jpg",
-  galley: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8272_3c7fce3a.jpg",
-  bathroom: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8270_926e37c0.jpg",
-  cockpit4: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage4_9458350e.jpg",
-  cockpit5: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/cockpitimage5_a6837624.jpg",
-  boat1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8289_bc046952.JPEG",
-  boat2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/IMG_8290_01cfc281.JPEG",
-  marina1: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b1_814d2b40.jpg",
-  marina2: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/b5_f98c1238.jpg",
-  pwmAerial: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/pwm_aerial_summer_72822424.jpg",
+  heroBg: "/images/new_homepage_hero_53b95ece.png",
+  salon: "/images/IMG_8276_22c05a58.jpg",
+  stateroom: "/images/IMG_8293_f0a2b0b1.jpg",
+  galley: "/images/IMG_8272_3c7fce3a.jpg",
+  bathroom: "/images/IMG_8270_926e37c0.jpg",
+  cockpit4: "/images/cockpitimage4_9458350e.jpg",
+  cockpit5: "/images/cockpitimage5_a6837624.jpg",
+  boat1: "/images/IMG_8289_bc046952.JPEG",
+  boat2: "/images/IMG_8290_01cfc281.JPEG",
+  marina1: "/images/b1_814d2b40.jpg",
+  marina2: "/images/b5_f98c1238.jpg",
+  pwmAerial: "/images/pwm_aerial_summer_72822424.jpg",
   // Social / family moments
-  fatherSonFishing: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/Fatherandsonfishing_a1fe06ce.png",
-  momWithKids: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/ChatGPTImageMar10,2026,04_22_24PM_38e85d33.png",
-  womanSunbathing: "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/womansunbathing_db283775.png",
+  fatherSonFishing: "/images/Fatherandsonfishing_a1fe06ce.png",
+  momWithKids: "/images/ChatGPTImageMar10,2026,04_22_24PM_38e85d33.png",
+  womanSunbathing: "/images/womansunbathing_db283775.png",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
@@ -79,7 +78,7 @@ function Navigation() {
         <a href="/" className="flex flex-col leading-none">
           <div className="flex items-center gap-2">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+              src="/images/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
               alt="Luna Sea Marine logo"
               style={{ width: "32px", height: "32px", objectFit: "contain" }}
             />
@@ -734,7 +733,7 @@ function VesselFeaturesSection() {
                 <img src={IMAGES.cockpit5} alt="Cockpit seating" className="w-full h-full object-cover" />
               </div>
               <div className="photo-card aspect-[4/3]">
-                <img src={IMAGES.marina1} alt="Prince William Marina" className="w-full h-full object-cover" />
+                <img src={IMAGES.marina1} alt="Sea Ray 390 Motor Yacht at her berth" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -1011,7 +1010,7 @@ function InquiryForm() {
             </div>
 
             <div className="photo-card aspect-video">
-              <img src="/manus-storage/IMG_0884_0eb5630e.JPG" alt="Sea Ray 390 Motor Yacht at Prince William Marina" className="w-full h-full object-cover" />
+              <img src="/images/lunasea2_landscape_d63608ce.png" alt="Luna Sea, a Sea Ray 390 Motor Yacht, at Prince William Marina" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-navy/20" />
             </div>
           </div>
@@ -1185,7 +1184,7 @@ function Footer() {
           <div>
             <div className="mb-4 flex items-center gap-3">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
+                src="/images/luna_sea_marine_logo-5yYTbKz7zrmVitDLMtP6Qb.webp"
                 alt="Luna Sea Marine"
                 style={{ width: "40px", height: "40px", objectFit: "contain" }}
               />
@@ -1277,8 +1276,8 @@ function Footer() {
 // ─── Main Social Venue Component ───────────────────────────────────────────────
 // ─── Stay Aboard Banner ─────────────────────────────────────────────────────
 function StayAboardBanner() {
-  const NIGHT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp";
-  const STATEROOM = "https://d2xsxph8kpxj0f.cloudfront.net/105450714/mn5ePzJGJrovVnJuBnxonq/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
+  const NIGHT_IMG = "/images/stay_aboard_hero_v6-Xmo9WpViykvTk2NTJXFjaB.webp";
+  const STATEROOM = "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp";
 
   return (
     <section className="reveal relative overflow-hidden" style={{ background: "oklch(0.10 0.03 240)" }}>
