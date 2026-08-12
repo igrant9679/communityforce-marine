@@ -7,7 +7,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Link } from "wouter";
-import { MapView } from "@/components/Map";
+import { MarinaMap } from "@/components/MarinaMap";
 
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
@@ -825,17 +825,11 @@ function LocationSection() {
           </div>
           <div className="reveal">
             <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: 400 }}>
-              <MapView
+              <MarinaMap
                 className="w-full h-full"
-                initialCenter={{ lat: 38.6818, lng: -77.2598 }}
-                initialZoom={14}
-                onMapReady={(map: google.maps.Map) => {
-                  new google.maps.marker.AdvancedMarkerElement({
-                    map,
-                    position: { lat: 38.6818, lng: -77.2598 },
-                    title: "Prince William Marina — Luna Sea Marine",
-                  });
-                }}
+                lat={38.6818}
+                lng={-77.2598}
+                zoom={14}
               />
             </div>
           </div>
