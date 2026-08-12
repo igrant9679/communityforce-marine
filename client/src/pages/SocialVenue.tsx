@@ -1010,7 +1010,7 @@ function InquiryForm() {
             </div>
 
             <div className="photo-card aspect-video">
-              <img src="/images/lunasea2_landscape_d63608ce.png" alt="Luna Sea, a Sea Ray 390 Motor Yacht, at Prince William Marina" className="w-full h-full object-cover" />
+              <img src="/images/lunasea2_landscape_d63608ce.webp" alt="Luna Sea, a Sea Ray 390 Motor Yacht, at Prince William Marina" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-navy/20" />
             </div>
           </div>

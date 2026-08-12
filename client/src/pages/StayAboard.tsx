@@ -17,7 +17,7 @@ const IMAGES = {
   stateroomNight: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
   // boatDay/boatRiver previously pointed at dead CDN keys (403 = never existed).
   // swimPlatform was removed: its only file was dead and nothing rendered it.
-  boatDay: "/images/lunasea2_landscape_d63608ce.png",
+  boatDay: "/images/lunasea2_landscape_d63608ce.webp",
   boatRiver: "/images/IMG_0787_03fa7333.JPG",
   salon: "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
   stateroom: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",

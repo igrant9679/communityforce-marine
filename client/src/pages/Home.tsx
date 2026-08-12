@@ -39,9 +39,9 @@ const IMAGES = {
   // 403 for objects that never existed, so they were never private, just wrong.
   // Repointed at photographs already in the manifest: Luna Sea at her Prince
   // William Marina slip, the 390 on the Occoquan, and the marina at golden hour.
-  boatReal1: "/images/lunasea2_landscape_d63608ce.png",
+  boatReal1: "/images/lunasea2_landscape_d63608ce.webp",
   boatReal2: "/images/IMG_0787_03fa7333.JPG",
-  boatReal3: "/images/pw_marina2_landscape_f37bf649.png",
+  boatReal3: "/images/pw_marina2_landscape_f37bf649.webp",
   // Actual boat photos
   boat1: "/images/IMG_8289_bc046952.JPEG",
   boat2: "/images/IMG_8290_01cfc281.JPEG",
@@ -73,11 +73,11 @@ const IMAGES = {
   pwPoolPortrait: "/images/pw_pool_portrait_378eaa0e.png",
   marinaAerialLandscape: "/images/marina_aerial_landscape_ee467009.png",
   pwMarina1: "/images/pw_marina1_landscape_9425392b.png",
-  pwMarina2: "/images/pw_marina2_landscape_f37bf649.png",
+  pwMarina2: "/images/pw_marina2_landscape_f37bf649.webp",
   epalm4: "/images/epalm4_landscape_042d9aee.png",
   epalm1: "/images/epalm1_landscape_5616e665.png",
   lunaSea1: "/images/lunasea1_landscape_baeae85d.png",
-  lunaSea2: "/images/lunasea2_landscape_d63608ce.png",
+  lunaSea2: "/images/lunasea2_landscape_d63608ce.webp",
   marina3Landscape: "/images/marina3_landscape_84f04340.png",
   // New cockpit & interior photos
   cockpit1: "/images/cockpitimage1_47ab1ea0.jpg",
