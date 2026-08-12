@@ -35,9 +35,13 @@ const IMAGES = {
   bizCockpit3: "/images/biz_cockpit3_72a74766.png",
   bizCockpit4: "/images/biz_cockpit4_584f7faa.png",
   // Real owner boat photos (high-accuracy Sea Ray 390)
-  boatReal1: "/images/IMG_0884_0eb5630e.JPG",
-  boatReal2: "/images/IMG_0787_3b05bbdf.JPG",
-  boatReal3: "/images/b3_6de55c03.jpg",
+  // The three filenames previously here were dead CDN keys — the bucket answers
+  // 403 for objects that never existed, so they were never private, just wrong.
+  // Repointed at photographs already in the manifest: Luna Sea at her Prince
+  // William Marina slip, the 390 on the Occoquan, and the marina at golden hour.
+  boatReal1: "/images/lunasea2_landscape_d63608ce.png",
+  boatReal2: "/images/IMG_0787_03fa7333.JPG",
+  boatReal3: "/images/pw_marina2_landscape_f37bf649.png",
   // Actual boat photos
   boat1: "/images/IMG_8289_bc046952.JPEG",
   boat2: "/images/IMG_8290_01cfc281.JPEG",
@@ -778,7 +782,7 @@ function GallerySection() {
   const allGalleryImages = [
     { src: IMAGES.boatReal1, alt: "Sea Ray 390 Motor Yacht at Prince William Marina", cat: "exterior" },
     { src: IMAGES.boatReal2, alt: "Sea Ray 390 docked on the Occoquan River", cat: "exterior" },
-    { src: IMAGES.boatReal3, alt: "Sea Ray 390 swim platform — family day on the water", cat: "exterior" },
+    { src: IMAGES.boatReal3, alt: "Prince William Marina waterfront at golden hour", cat: "marina" },
     { src: IMAGES.boat1, alt: "Vessel exterior at marina", cat: "exterior" },
     { src: IMAGES.boat7, alt: "Yacht on the water", cat: "exterior" },
     { src: IMAGES.boat8, alt: "Vessel at dock", cat: "exterior" },
@@ -1004,7 +1008,7 @@ function CaptainBioSection() {
             >
               <img
                 src={IMAGES.boatReal1}
-                alt="Captain Idris Grant aboard the Sea Ray 390 Motor Yacht"
+                alt="Luna Sea, a Sea Ray 390 Motor Yacht, at her Prince William Marina slip"
                 className="w-full object-cover"
                 style={{ maxHeight: 480 }}
               />

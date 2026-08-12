@@ -11,7 +11,6 @@ import { toast } from "sonner";
 // ─── Image CDN URLs ───────────────────────────────────────────────────────────
 const IMAGES = {
   heroBg: "/images/new_homepage_hero_53b95ece.png",
-  heroSunset: "/images/hero_sunset-3CfVwAu7r47R25P8yyUrge.webp",
   salon: "/images/IMG_8276_22c05a58.jpg",
   stateroom: "/images/IMG_8293_f0a2b0b1.jpg",
   galley: "/images/IMG_8272_3c7fce3a.jpg",
@@ -1011,7 +1010,7 @@ function InquiryForm() {
             </div>
 
             <div className="photo-card aspect-video">
-              <img src="/images/IMG_0884_0eb5630e.JPG" alt="Sea Ray 390 Motor Yacht at Prince William Marina" className="w-full h-full object-cover" />
+              <img src="/images/lunasea2_landscape_d63608ce.png" alt="Luna Sea, a Sea Ray 390 Motor Yacht, at Prince William Marina" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-navy/20" />
             </div>
           </div>
