@@ -21,7 +21,10 @@ const IMAGES = {
   salon: "/images/sea_ray_390_salon_interior-TT2m2ppFgBXWYMNdgjBYgo.webp",
   stateroom: "/images/sea_ray_390_stateroom_interior-naV5ZT2VcqjigW8jM25Dzo.webp",
   galley: "/images/cockpit_evening_v2-ia5T9iUtTEyZbjzwNrhkQK.webp",
-  bathroom: "/images/b3_6de55c03.jpg",
+  // Was b3_6de55c03.jpg — the swim platform photo — under captions reading
+  // "Head with stand-up shower" and "Private Head". This is the head photo that
+  // Home and Social Charters were already using correctly.
+  bathroom: "/images/IMG_8270_926e37c0.jpg",
 };
 
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
