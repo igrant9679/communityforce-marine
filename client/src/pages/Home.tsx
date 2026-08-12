@@ -799,12 +799,12 @@ function GallerySection() {
     { src: IMAGES.galley1, alt: "Galley and companionway", cat: "interior" },
     { src: IMAGES.fridge, alt: "Galley refrigerator", cat: "interior" },
     { src: IMAGES.interior1, alt: "Vessel interior", cat: "interior" },
-    { src: IMAGES.marina1, alt: "Prince William Marina", cat: "marina" },
-    { src: IMAGES.marina2, alt: "Marina resort waterfront", cat: "marina" },
-    { src: IMAGES.marina4, alt: "Occoquan River", cat: "marina" },
+    { src: IMAGES.marina1, alt: "Sea Ray 390 Motor Yacht at her berth", cat: "marina" },
+    { src: IMAGES.marina2, alt: "Luna Sea berthed at Prince William Marina", cat: "marina" },
+    { src: IMAGES.marina4, alt: "Sea Ray 390 Motor Yacht, broadside view", cat: "marina" },
     { src: IMAGES.pwmAerialSummer, alt: "Marina aerial view", cat: "marina" },
     { src: IMAGES.pwmDock, alt: "Marina dock walkway", cat: "marina" },
-    { src: IMAGES.marina8, alt: "Marina resort facilities", cat: "marina" },
+    { src: IMAGES.marina8, alt: "Sea Ray 390 Motor Yacht on the Occoquan River", cat: "marina" },
   ];
 
   const galleryImages = activeCategory === "all"
@@ -1283,13 +1283,13 @@ function MarinaSection() {
     { src: IMAGES.pwMarina2, alt: "Prince William Marina waterfront" },
     { src: IMAGES.marina3Landscape, alt: "Marina facilities landscape" },
     { src: IMAGES.epalm1, alt: "The Electric Palm Restaurant" },
-    { src: IMAGES.epalm4, alt: "Electric Palm outdoor dining" },
-    { src: IMAGES.epalm3, alt: "Electric Palm restaurant interior" },
-    { src: IMAGES.lunaSea1, alt: "Luna Sea Bar & Grill" },
-    { src: IMAGES.lunaSea2, alt: "Luna Sea waterfront dining" },
+    { src: IMAGES.epalm4, alt: "The Electric Palm Restaurant exterior" },
+    { src: IMAGES.epalm3, alt: "The Electric Palm Restaurant from the road" },
+    { src: IMAGES.lunaSea1, alt: "Sea Ray 390 Motor Yacht at her berth" },
+    { src: IMAGES.lunaSea2, alt: "Luna Sea berthed at Prince William Marina" },
     { src: IMAGES.pwPool1, alt: "Prince William Marina pool" },
     { src: IMAGES.pwPoolPortrait, alt: "Marina pool and resort" },
-    { src: IMAGES.pwBathhousePool, alt: "Marina bathhouse and pool" },
+    { src: IMAGES.pwBathhousePool, alt: "Marina bathhouse and lawn" },
   ];
 
   return (

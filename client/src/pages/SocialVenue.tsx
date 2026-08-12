@@ -733,7 +733,7 @@ function VesselFeaturesSection() {
                 <img src={IMAGES.cockpit5} alt="Cockpit seating" className="w-full h-full object-cover" />
               </div>
               <div className="photo-card aspect-[4/3]">
-                <img src={IMAGES.marina1} alt="Prince William Marina" className="w-full h-full object-cover" />
+                <img src={IMAGES.marina1} alt="Sea Ray 390 Motor Yacht at her berth" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
